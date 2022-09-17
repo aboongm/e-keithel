@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token}, status: :ok
     else
-      render json: {error: 'Invalid user or passwor'}, status: :unprocessable_entity  
+      render json: {error: 'Invalid user or password'}, status: :unprocessable_entity  
     end
   end
 
