@@ -1,0 +1,24 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/e-keithel-frontend/node_modules
+/e-keithel-backend/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/e-keithel-frontend/coverage
+
+# production
+/e-keithel-frontend/build
+
+# misc
+/e-keithel-frontend/.DS_Store
+/e-keithel-frontend/.env.local
+/e-keithel-frontend/.env.development.local
+/e-keithel-frontend/.env.test.local
+/e-keithel-frontend/.env.production.local
+
+/e-keithel-frontend/npm-debug.log*
+/e-keithel-frontend/yarn-debug.log*
+/e-keithel-frontend/yarn-error.log*
