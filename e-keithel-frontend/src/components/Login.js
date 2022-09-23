@@ -30,26 +30,34 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log('email and password ', email, pwd);
     try {
-      console.log('clicked!!!!!!!!!!!!!!!!!!!!!!');
+      console.log('clicked!!!!!!!!!!!!!!!!!!!!!!', email, pwd);
+      console.log('Check 1:', email === 'aboongm@aboongm.com');
+      console.log('check 2: ', pwd === 'password');
       const response = await axios.post(
         LOGIN_URL,
         JSON.stringify({
           user: {
-            email,
-            pwd,
+            // email: 'aboongm@aboongm.com',
+            // password: 'password',
+            email: email,
+            password: pwd,
           },
         }),
         {
           headers: { 'Content-Type': 'application/json' },
-          withCredentials: true,
+          // withCredentials: true,
+          // Accept: 'application/json',
+          // Authorization: localStorage.token,
         }
       );
 
       console.log(JSON.stringify(response?.data));
       // console.log(JSON.stringify(respons));
       const accessToken = response?.data?.accessToken;
+      console.log('accessToken: ', response?.data?.status?.data?.jti);
+      console.log('roles: ', response?.data?.status?.data?.role);
       // const roles = response?.data?.roles;
 
       // setAuth({ email, pwd, roles, accessToken });

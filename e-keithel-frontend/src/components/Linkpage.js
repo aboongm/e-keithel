@@ -8,11 +8,11 @@ const LinkPage = () => {
       <h2>Public</h2>
       <Link to="/login">Login</Link>
       <Link to="/register">Register</Link>
+      <br />
+      <h2>Private</h2>
       <Link to="/home">Home</Link>
       <Link to="/products">Products</Link>
       <Link to="/cart">Cart</Link>
-      <br />
-      <h2>Private</h2>
       <Link to="/profile">Profile</Link>
       <Link to="/checkout">Checkout</Link>
       <Link to="/history">History</Link>
