@@ -10,6 +10,13 @@ import Linkpage from './components/Linkpage';
 import Checkout from './components/Checkout';
 import Profile from './components/Profile';
 import History from './components/History';
+import RequireAuth from './components/RequireAuth';
+
+// const ROLES = {
+//   User: 2001,
+//   Editor: 1984,
+//   Admin: 2000,
+// };
 
 function App() {
   return (
@@ -26,9 +33,11 @@ function App() {
           <Route path="unauthorized" element={<Unauthorized />} />
 
           {/* we want to protect these routes */}
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="history" element={<History />} />
+          <Route element={<RequireAuth />}>
+            <Route path="profile" element={<Profile />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="history" element={<History />} />
+          </Route>
 
           {/* catch all */}
           {/* <Route path="*" element={<Missing />} /> */}

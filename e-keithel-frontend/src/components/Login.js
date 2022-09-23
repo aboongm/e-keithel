@@ -2,8 +2,9 @@ import { useRef, useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
+// import axios from 'axios';
 import axios from '../api/axios';
-const LOGIN_URL = '/auth';
+const LOGIN_URL = '/users/sign_in';
 
 const Login = () => {
   const { setAuth } = useAuth();
@@ -12,45 +13,55 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
-  const userRef = useRef();
+  const emailRef = useRef();
   const errRef = useRef();
 
-  const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
   useEffect(() => {
-    userRef.current.focus();
+    emailRef.current.focus();
   }, []);
 
   useEffect(() => {
     setErrMsg('');
-  }, [user, pwd]);
+  }, [email, pwd]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
+      console.log('clicked!!!!!!!!!!!!!!!!!!!!!!');
       const response = await axios.post(
         LOGIN_URL,
-        JSON.stringify({ user, pwd }),
+        JSON.stringify({
+          user: {
+            email,
+            pwd,
+          },
+        }),
         {
-          header: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         }
       );
+
       console.log(JSON.stringify(response?.data));
       // console.log(JSON.stringify(respons));
-      const roles = response?.data?.roles;
+      const accessToken = response?.data?.accessToken;
+      // const roles = response?.data?.roles;
 
-      setAuth({ user, pwd, roles, accessToken });
-      setUser('');
+      // setAuth({ email, pwd, roles, accessToken });
+      setAuth({ email, pwd, accessToken });
+      setEmail('');
       setPwd('');
       navigate(from, { replace: true });
     } catch (err) {
       if (!err) {
         if (!err?.response) {
         } else if (err.response?.status === 400) {
-          setErrMsg('Missing Username or Password');
+          setErrMsg('Missing Email or Password');
         } else if (err.response?.status === 401) {
           setErrMsg('Unauthorized');
         } else {
@@ -65,21 +76,21 @@ const Login = () => {
     <section>
       <p
         ref={errRef}
-        className={errMsg ? 'errmsg' : 'oofscreen'}
+        className={errMsg ? 'errmsg' : 'offscreen'}
         aria-live="assertive"
       >
         {errMsg}
       </p>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="email">Email:</label>
         <input
           type="text"
-          id="username"
-          ref={userRef}
+          id="email"
+          ref={emailRef}
           autoComplete="off"
-          onChange={(e) => setUser(e.target.value)}
-          value={user}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
           required
         />
 

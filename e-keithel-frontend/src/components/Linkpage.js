@@ -1,7 +1,23 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Linkpage = () => {
-  return <div>Linkpage</div>;
+const LinkPage = () => {
+  return (
+    <section>
+      <h1>Links</h1>
+      <br />
+      <h2>Public</h2>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
+      <Link to="/home">Home</Link>
+      <Link to="/products">Products</Link>
+      <Link to="/cart">Cart</Link>
+      <br />
+      <h2>Private</h2>
+      <Link to="/profile">Profile</Link>
+      <Link to="/checkout">Checkout</Link>
+      <Link to="/history">History</Link>
+    </section>
+  );
 };
 
-export default Linkpage;
+export default LinkPage;
