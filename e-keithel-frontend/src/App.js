@@ -33,11 +33,11 @@ function App() {
           <Route path="unauthorized" element={<Unauthorized />} />
 
           {/* we want to protect these routes */}
-          <Route element={<RequireAuth />}>
-            <Route path="profile" element={<Profile />} />
-            <Route path="checkout" element={<Checkout />} />
-            <Route path="history" element={<History />} />
-          </Route>
+          {/* <Route element={<RequireAuth />}> */}
+          <Route path="profile" element={<Profile />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="history" element={<History />} />
+          {/* </Route> */}
 
           {/* catch all */}
           {/* <Route path="*" element={<Missing />} /> */}
