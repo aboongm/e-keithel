@@ -54,7 +54,7 @@ const Login = () => {
               className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
             >
               {' '}
-              Sign up here
+              <Link to="/signup">Sign Up Here</Link>
             </span>
           </p>
           <div>

@@ -58,7 +58,7 @@ const Signup = () => {
               className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
             >
               {' '}
-              Login here
+              <Link to="/login">Login Here</Link>
             </span>
           </p>
           <div>
