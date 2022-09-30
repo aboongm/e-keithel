@@ -1,12 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginUser } from '../../../redux/reducers/authActions';
+import { signupUser } from '../../../redux/reducers/authActions';
 
-const Login = () => {
+const Signup = () => {
+  const nameRef = useRef();
   const emailRef = useRef();
   const errRef = useRef();
 
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errMsg, setErrMsg] = useState('');
@@ -15,20 +17,22 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    nameRef.current.focus();
     emailRef.current.focus();
   }, []);
 
   useEffect(() => {
     setErrMsg('');
-  }, [email, password]);
+  }, [name, email, password]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(loginUser({ email, password }));
+    dispatch(signupUser({ name, email, password }));
     navigate('/');
   };
 
+  const handleNameInput = (e) => setName(e.target.value);
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);
 
@@ -43,20 +47,35 @@ const Login = () => {
             aria-label="Login to your account"
             className="text-2xl font-extrabold leading-6 text-gray-800"
           >
-            Login to your account
+            Create your account
           </p>
           <p className="text-sm mt-4 font-medium leading-none text-gray-500">
-            Dont have account?{' '}
+            Already have an account?{' '}
             <span
               tabIndex={0}
               role="link"
-              aria-label="Sign up here"
+              aria-label="Login here"
               className="text-sm font-medium leading-none underline text-gray-800 cursor-pointer"
             >
               {' '}
-              Sign up here
+              Login here
             </span>
           </p>
+          <div>
+            <label className="text-sm font-medium leading-none text-gray-800">
+              Name
+            </label>
+            <input
+              aria-label="enter your name"
+              type="name"
+              id="name"
+              ref={nameRef}
+              value={name}
+              onChange={handleNameInput}
+              className="bg-gray-200 border rounded focus:outline-none text-xs font-medium leading-none text-gray-800 py-3 w-full pl-3 mt-2"
+              required
+            />
+          </div>
           <div>
             <label className="text-sm font-medium leading-none text-gray-800">
               Email
@@ -109,7 +128,7 @@ const Login = () => {
               aria-label="create my account"
               className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
             >
-              Login
+              Sign Up
             </button>
           </div>
         </div>
@@ -120,4 +139,4 @@ const Login = () => {
   return content;
 };
 
-export default Login;
+export default Signup;
