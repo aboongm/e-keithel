@@ -13,10 +13,32 @@ const Header = () => {
       <Link to="/">
         <img className="header__logo" src={monaaz} alt="amazon" />
       </Link>
-      <div className="header__search">
+      <form className="header__search">
+        <select className="header__select">
+          <option>All</option>
+          <option>Arts & Crafts</option>
+          <option>Beauty & Personal Care</option>
+          <option>Books</option>
+          <option>Children's Fashion</option>
+          <option>Computers</option>
+          <option>Digital Music</option>
+          <option>Electronics</option>
+          <option>Home & Kitchen</option>
+          <option>Men's Fashion</option>
+          <option>Movie & TV</option>
+          <option>Pet Supplies</option>
+          <option>Sports & Outdoors</option>
+          <option>Software</option>
+          <option>Tools & Home Improvements</option>
+          <option>Toys & Games</option>
+          <option>Video Games</option>
+          <option>Women's Fashion</option>
+        </select>
         <input className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
-      </div>
+        <button className="header__searchIcon">
+          <SearchIcon />
+        </button>
+      </form>
       <div className="header__nav">
         <Link to="/login">
           {/* eslint-disable-next-line */}
