@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { Avatar } from '@mui/material';
-import monaaz from '../../assets/images/monaaz_white.png';
+import monaaz from '../../assets/images/monaaz_black.png';
 import aboong from '../../assets/images/1.png';
 
 const Header = () => {
