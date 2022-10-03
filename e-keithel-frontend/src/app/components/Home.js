@@ -17,7 +17,7 @@ const Home = () => {
       <header>
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign Up</Link>
-        <h1>
+        <h1 class="text-3xl font-bold underline">
           Welcome to <span className="nowrap">e-Keithel!</span>
         </h1>
       </header>
