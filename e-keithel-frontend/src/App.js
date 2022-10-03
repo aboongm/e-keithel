@@ -6,7 +6,6 @@ import Home from './app/components/Home';
 
 function App() {
   return (
-    // <div className="App">
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
@@ -14,7 +13,6 @@ function App() {
         <Route index element={<Home />} />
       </Route>
     </Routes>
-    // </div>
   );
 }
 
