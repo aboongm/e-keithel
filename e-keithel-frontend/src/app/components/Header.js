@@ -14,7 +14,8 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const user = useSelector(
-    (state) => state.rootReducer.loginReducer
+    (state) => state.persistedReducer.loginReducer
+    // (state) => state.rootReducer.loginReducer
     // (state) => state.rootReducer.auth.currentUser.status.data
   );
   console.log('user: ', user.loggedIn);

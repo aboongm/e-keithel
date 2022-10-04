@@ -8,7 +8,7 @@ import '../../assets/styles/ProductList.css';
 const ProductList = () => {
   const dispatch = useDispatch();
   const productList = useSelector(
-    (state) => state.rootReducer.productListReducer.productList.data
+    (state) => state.persistedReducer.productListReducer.productList.data
   );
   console.log('productList: ', productList);
 
