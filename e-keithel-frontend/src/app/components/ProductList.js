@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProductList } from '../../redux/reducers/product/productReducers';
 import Product from './Product';
-import banner1 from '../../assets/images/banner_1.jpg';
 import '../../assets/styles/ProductList.css';
 
 const ProductList = () => {
@@ -10,7 +9,7 @@ const ProductList = () => {
   const productList = useSelector(
     (state) => state.persistedReducer.productListReducer.productList.data
   );
-  console.log('productList: ', productList);
+  // console.log('productList: ', productList);
 
   useEffect(() => {
     dispatch(fetchProductList());

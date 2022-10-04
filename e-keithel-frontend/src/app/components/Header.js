@@ -18,7 +18,11 @@ const Header = () => {
     // (state) => state.rootReducer.loginReducer
     // (state) => state.rootReducer.auth.currentUser.status.data
   );
-  console.log('user: ', user.loggedIn);
+  // console.log('user: ', user.loggedIn);
+  const basket = useSelector(
+    (state) => state.persistedReducer.basketReducer.basket
+  );
+  console.log('basket: ', basket);
 
   const handleAuthentication = () => {
     console.log('handle signout');
@@ -79,7 +83,9 @@ const Header = () => {
         <Link to="/checkout">
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
-            <span className="header__optionLineTwo header__basketCount">0</span>
+            <span className="header__optionLineTwo header__basketCount">
+              {basket.length}
+            </span>
           </div>
         </Link>
         <div className="header__option">

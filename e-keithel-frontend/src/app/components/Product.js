@@ -1,8 +1,28 @@
 import React from 'react';
 import '../../assets/styles/Product.css';
 import PropTypes from 'prop-types';
+// import addToBasketRequest from '../../redux/reducers/basket/basketReducers';
+import { useDispatch } from 'react-redux';
 
 const Product = ({ id, title, image, price, rating }) => {
+  const dispatch = useDispatch();
+
+  const AddToBasket = () => {
+    // Add item to basket
+    console.log('clicked');
+    // dispatch(addToBasketRequest({ id, title, image, price, rating }));
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: {
+        id,
+        title,
+        image,
+        price,
+        rating,
+      },
+    });
+  };
+
   const content = (
     <div className="product">
       <div className="product__info">
@@ -20,7 +40,9 @@ const Product = ({ id, title, image, price, rating }) => {
         </div>
       </div>
       <img src={image} alt="" />
-      <button type="button">Add to Basket</button>
+      <button onClick={AddToBasket} type="button">
+        Add to Basket
+      </button>
     </div>
   );
   return content;
