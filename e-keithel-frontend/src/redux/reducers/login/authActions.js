@@ -1,5 +1,5 @@
-import url from '../helpers/apiUrl';
-import { AUTHENTICATED, NOT_AUTHENTICATED } from '../helpers/constants';
+import url from '../../helpers/apiUrl';
+import { AUTHENTICATED, NOT_AUTHENTICATED } from '../../helpers/constants';
 
 const setToken = (token) => {
   localStorage.setItem('token', token);
@@ -71,6 +71,7 @@ export const signupUser = (credentials) => {
 };
 
 export const logoutUser = () => {
+  console.log('from logoutUser');
   return (dispatch) => {
     return fetch(`${url}/logout`, {
       method: 'DELETE',

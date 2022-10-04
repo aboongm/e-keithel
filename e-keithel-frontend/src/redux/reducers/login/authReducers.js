@@ -1,4 +1,4 @@
-import { AUTHENTICATED, NOT_AUTHENTICATED } from '../helpers/constants';
+import { AUTHENTICATED, NOT_AUTHENTICATED } from '../../helpers/constants';
 
 const initialState = {
   authChecked: false,

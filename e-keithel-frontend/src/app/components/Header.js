@@ -2,12 +2,31 @@ import React from 'react';
 import '../../assets/styles/Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Avatar } from '@mui/material';
 import monaaz from '../../assets/images/monaaz_black.png';
 import aboong from '../../assets/images/1.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from '../../redux/reducers/login/authActions';
 
 const Header = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const user = useSelector(
+    (state) => state.rootReducer.loginReducer
+    // (state) => state.rootReducer.auth.currentUser.status.data
+  );
+  console.log('user: ', user.loggedIn);
+
+  const handleAuthentication = () => {
+    console.log('handle signout');
+    if (user.currentUser) {
+      dispatch(logoutUser());
+      navigate('/login');
+    }
+  };
+
   const content = (
     <div className="header">
       <Link to="/">
@@ -40,11 +59,16 @@ const Header = () => {
         </button>
       </form>
       <div className="header__nav">
-        <Link to="/login">
+        <Link to={!user.loggedIn && '/login'}>
           {/* eslint-disable-next-line */}
-          <div className="header__option">
-            <span className="header__optionLineOne">HelloGuest!</span>
-            <span className="header__optionLineTwo">Sign In</span>
+          <div className="header__option" onClick={handleAuthentication}>
+            <span className="header__optionLineOne">
+              Hello{' '}
+              {user.loggedIn ? user.currentUser.status.data.email : 'Guest!'}
+            </span>
+            <span className="header__optionLineTwo">
+              {user.loggedIn ? 'Sign Out' : 'Sign In!'}
+            </span>
           </div>
         </Link>
         <div className="header__option">

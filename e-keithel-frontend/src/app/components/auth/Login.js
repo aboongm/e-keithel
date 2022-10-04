@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginUser } from '../../../redux/reducers/authActions';
+import { loginUser } from '../../../redux/reducers/login/authActions';
 import monaaz from '../../../assets/images/monaaz_black.png';
 import '../../../assets/styles/Login.css';
 
