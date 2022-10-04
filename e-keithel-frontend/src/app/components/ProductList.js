@@ -19,7 +19,9 @@ const ProductList = () => {
   return (
     <div className="productList">
       <div className="productList__container">
-        <h1 className="productList__title">Products</h1>
+        <div className="productList__title">
+          <h1>Products</h1>
+        </div>
 
         <div className="productList__row">
           {productList.map((product) => {
