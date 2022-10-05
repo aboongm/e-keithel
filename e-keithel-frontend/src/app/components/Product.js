@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import '../../assets/styles/Product.css';
 import PropTypes from 'prop-types';
-import addToBasketRequest from '../../redux/reducers/basket/basketReducers';
+// import addToBasketRequest from '../../redux/reducers/basket/basketReducers';
 import { useDispatch } from 'react-redux';
 
 const Product = ({ id, title, image, price, rating }) => {
@@ -49,7 +49,7 @@ const Product = ({ id, title, image, price, rating }) => {
 };
 
 Product.propTypes = {
-  // id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.number,
