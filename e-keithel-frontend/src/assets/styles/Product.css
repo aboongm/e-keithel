@@ -21,9 +21,9 @@
   background: #2b83b2;
   border: 1px solid;
   margin-top: 10px;
-  padding: 0 6px;
   border-color: #54acd7 #2a7aa2 #185e81;
   color: #fff;
+  padding: 8px 12px;
 }
 
 .product__price {
