@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/styles/Payment.css';
 import { Link, useNavigate } from 'react-router-dom';
-// import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CheckoutProduct from './CheckoutProduct';
-// import axios from './axios';
-// import { db } from '../firebase';
+import axios from 'axios';
 
 import { useSelector } from 'react-redux';
+import { getBasketTotal } from '../../redux/reducers/basket/basketReducers';
 
 const Payment = () => {
   const user = useSelector((state) => state.persistedReducer.loginReducer);
@@ -14,10 +14,12 @@ const Payment = () => {
     (state) => state.persistedReducer.basketReducer.basket
   );
   console.log('user from payment: ', user);
-  //   const handleChange = (e) => {
-  //     setDisabled(e.empty);
-  //     setError(e.error ? e.error.message : '');
-  //   };
+  const handleChange = (e) => {
+    // setDisabled(e.empty);
+    // setError(e.error ? e.error.message : '');
+  };
+
+  const handleSubmit = async (e) => {};
 
   const content = (
     <section className="payment">
@@ -56,24 +58,18 @@ const Payment = () => {
           <div className="payment__title">
             <h3>Payment Method</h3>
           </div>
-          {/* <div className="payment__details">
+          <div className="payment__details">
             <form onSubmit={handleSubmit}>
-              <CardElement onChange={handleChange} />
+              {/* <CardElement /> */}
 
               <div className="payment__priceContainer">
                 <h3>Order Total: ${getBasketTotal(basket)}</h3>
-                <button
-                  type="submit"
-                  disabled={processing || disabled || succeeded}
-                >
-                  <span>{processing ? <p>Processing</p> : 'Buy Now'}</span>
+                <button type="submit">
+                  <span>Buy Now</span>
                 </button>
               </div>
-
-              
-              {error && <div>{error}</div>}
             </form>
-          </div> */}
+          </div>
         </div>
       </div>
     </section>
