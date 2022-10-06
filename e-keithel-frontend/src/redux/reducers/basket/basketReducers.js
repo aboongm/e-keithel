@@ -22,6 +22,7 @@ const basketReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         basket: [...state.basket, action.item],
+        // basket: [action.item],
       };
 
     case 'REMOVE_FROM_BASKET': {

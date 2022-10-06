@@ -5,6 +5,7 @@ import Login from './app/components/auth/Login';
 import Home from './app/components/Home';
 import ProductList from './app/components/ProductList';
 import Checkout from './app/components/Checkout';
+import Payment from './app/components/Payment';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/payment" element={<Payment />} />
 
         {/* <Route
           element={<RequireAuth allowedRoles={[ROLES.Manager, ROLES.Admin]} />}
