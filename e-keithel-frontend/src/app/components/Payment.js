@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/styles/Payment.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+// import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CheckoutProduct from './CheckoutProduct';
-import axios from 'axios';
+// import axios from 'axios';
 
 import { useSelector } from 'react-redux';
 import { getBasketTotal } from '../../redux/reducers/basket/basketReducers';
