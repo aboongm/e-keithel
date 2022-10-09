@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../assets/styles/Popular.css';
 import Details from './Details';
 import _ from 'lodash';
+import Paginate from './Paginate';
 
 const Popular = () => {
   const popularProducts = [
@@ -52,16 +53,87 @@ const Popular = () => {
       title: 'Software',
       image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
     },
+    {
+      id: 9,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
+    {
+      id: 10,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
+    {
+      id: 11,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
+    {
+      id: 12,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
+    {
+      id: 13,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
+    {
+      id: 14,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
+    {
+      id: 15,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
+    {
+      id: 16,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
+    {
+      id: 17,
+      title: 'Software',
+      image: 'https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg',
+    },
   ];
+
+  const [pageNumber, setPageNumber] = useState(0);
+
+  // const pagesCount = Math.ceil(popularProducts.length / 4);
+  // if (pagesCount === 1) return null;
+
+  // const pages = _.range(1, pagesCount + 1);
+  // console.log('pages', pages);
+
+  const productsPerPage = 8;
+  const pageVisited = pageNumber * productsPerPage;
+  const displayProducts = popularProducts.slice(
+    pageVisited,
+    pageVisited + productsPerPage
+  );
+
+  const pageCount = Math.ceil(popularProducts.length / productsPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
 
   const content = (
     <div className="popular">
       <h2>Popular Products</h2>
-      <div className="popular__row">
-        {popularProducts.map((item) => (
-          <Details key={item.id} popular={item} />
+      <ul className="popular__row">
+        {displayProducts.map((item) => (
+          <li className="details">
+            <div className="details__image">
+              <img src={item.image} alt="" />
+            </div>
+          </li>
         ))}
-      </div>
+        <Paginate pageCount={pageCount} changePage={changePage} />
+      </ul>
     </div>
   );
   return content;
