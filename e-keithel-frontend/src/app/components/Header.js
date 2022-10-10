@@ -13,12 +13,6 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [search, setSearch] = useState('');
-
-  // productList.map((product) =>
-  //   product.title.toLowerCase().includes(search.toLowerCase())
-  // );
-
   const user = useSelector(
     (state) => state.persistedReducer.loginReducer
     // (state) => state.rootReducer.loginReducer
@@ -41,6 +35,20 @@ const Header = () => {
       navigate('/login');
     }
   };
+
+  const [search, setSearch] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const productList = useSelector(
+    (state) => state.persistedReducer.productListReducer.productList.data
+  );
+  useEffect(() => {
+    const searchResults = productList.filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase())
+    );
+    console.log('search results: ', searchResults);
+    setSearchResults(searchResults);
+    navigate('/products');
+  }, [search]);
 
   const content = (
     <div className="header">
@@ -83,7 +91,6 @@ const Header = () => {
       </form>
       <div className="header__nav">
         <Link to={!user.loggedIn && '/login'}>
-          {/* eslint-disable-next-line */}
           <div className="header__option" onClick={handleAuthentication}>
             <span className="header__optionLineOne">
               Hello{' '}
