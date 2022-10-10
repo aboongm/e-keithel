@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../assets/styles/Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
@@ -13,6 +13,12 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [search, setSearch] = useState('');
+
+  // productList.map((product) =>
+  //   product.title.toLowerCase().includes(search.toLowerCase())
+  // );
+
   const user = useSelector(
     (state) => state.persistedReducer.loginReducer
     // (state) => state.rootReducer.loginReducer
@@ -22,7 +28,11 @@ const Header = () => {
   const basket = useSelector(
     (state) => state.persistedReducer.basketReducer.basket
   );
-  console.log('basket: ', basket);
+  // console.log('basket: ', basket);
+
+  useEffect(() => {
+    dispatch({ type: 'SEARCH_ITEM', item: search });
+  });
 
   const handleAuthentication = () => {
     console.log('handle signout');
@@ -58,7 +68,15 @@ const Header = () => {
           <option>Video Games</option>
           <option>Women's Fashion</option>
         </select>
-        <input className="header__searchInput" type="text" />
+        <input
+          className="header__searchInput"
+          id="search"
+          type="text"
+          role="searchbox"
+          placeholder="Search products"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <button className="header__searchIcon">
           <SearchIcon />
         </button>

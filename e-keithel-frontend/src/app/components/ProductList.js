@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProductList } from '../../redux/reducers/product/productReducers';
 import Product from './Product';
@@ -9,11 +9,23 @@ const ProductList = () => {
   const productList = useSelector(
     (state) => state.persistedReducer.productListReducer.productList.data
   );
-  // console.log('productList: ', productList);
+
+  const search = useSelector((state) => state.persistedReducer.searchReducer);
+  console.log('search ', search.searchWord);
 
   useEffect(() => {
     dispatch(fetchProductList());
   }, [dispatch]);
+
+  const [searchResults, setSearchResults] = useState([]);
+
+  useEffect(() => {
+    const searchResults = productList.filter((product) =>
+      product.title.toLowerCase().includes(search.searchWord.toLowerCase())
+    );
+    console.log('search results: ', searchResults);
+    setSearchResults(searchResults);
+  }, [search]);
 
   return (
     <div className="productList">
@@ -23,7 +35,7 @@ const ProductList = () => {
         </div>
 
         <div className="productList__row">
-          {productList.map((product) => {
+          {searchResults.map((product) => {
             return (
               <Product
                 key={product.id}

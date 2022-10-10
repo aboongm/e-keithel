@@ -22,7 +22,7 @@
 .previous-btn {
   position: absolute;
   /* top: 1660px; */
-  bottom: -820px;
+  /* bottom: -820px; */
   left: 22px;
   background-color: #2b83b2;
   padding: 15px 20px 15px 20px;
@@ -34,7 +34,7 @@
 
 .next-btn {
   position: absolute;
-  bottom: -820px;
+  /* bottom: -820px; */
   right: 22px;
   background-color: #2b83b2;
   padding: 15px 20px 15px 20px;
