@@ -1,14 +1,14 @@
 const fetchSearchWord = (search) => {};
 
 const initialState = {
-  searchWord: '',
+  searchResults: [],
 };
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'SEARCH_ITEM':
       return {
-        searchWord: action.item,
+        searchResults: action.item,
       };
     default:
       return state;

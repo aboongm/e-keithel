@@ -24,9 +24,9 @@ const Header = () => {
   );
   // console.log('basket: ', basket);
 
-  useEffect(() => {
-    dispatch({ type: 'SEARCH_ITEM', item: search });
-  });
+  // useEffect(() => {
+  //   dispatch({ type: 'SEARCH_ITEM', item: search });
+  // });
 
   const handleAuthentication = () => {
     console.log('handle signout');
@@ -47,7 +47,8 @@ const Header = () => {
     );
     console.log('search results: ', searchResults);
     setSearchResults(searchResults);
-    navigate('/products');
+    dispatch({ type: 'SEARCH_ITEM', item: searchResults });
+    navigate('/search');
   }, [search]);
 
   const content = (
