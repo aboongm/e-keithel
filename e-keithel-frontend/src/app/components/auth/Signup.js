@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { signupUser } from '../../../redux/reducers/authActions';
+import { signupUser } from '../../../redux/reducers/login/authActions';
+import monaaz from '../../../assets/images/monaaz_black.png';
+import '../../../assets/styles/Signup.css';
 
 const Signup = () => {
   const nameRef = useRef();
@@ -39,9 +41,12 @@ const Signup = () => {
   const errClass = errMsg ? 'errmsg' : 'offscreen';
 
   const content = (
-    <section className="h-full bg-gradient-to-tl from-green-400 to-indigo-900 w-full py-16 px-4">
+    <section className="h-full  w-full py-16 px-4">
       <div className="flex flex-col items-center justify-center">
-        <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+        <Link to="/">
+          <img className="header__logo" src={monaaz} alt="amazon" />
+        </Link>
+        <div className="bg-white border shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
           <p
             tabIndex={0}
             aria-label="Login to your account"
@@ -126,7 +131,7 @@ const Signup = () => {
               onClick={handleSubmit}
               type="button"
               aria-label="create my account"
-              className="focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
+              className="signup__button"
             >
               Sign Up
             </button>

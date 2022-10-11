@@ -1,0 +1,45 @@
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 2px solid #d5d1d1;
+}
+.category > h1 {
+  font-size: 24px;
+  font-weight: 500;
+  border-bottom: 1px solid #d5d1d1;
+  margin-bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.category > img {
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  height: 240px;
+  margin-bottom: 10px;
+  background-color: gray;
+  object-position: top;
+}
+
+.category > button {
+  font-size: 16px;
+  font-weight: 500;
+  border-top: 1px solid #d5d1d1;
+  margin-bottom: 8px;
+  width: 100%;
+  text-align: center;
+  color: #2b8cc0;
+}
+
+@media (max-width: 1024px) {
+  .category > h1 {
+    font-size: 17px;
+  }
+}

@@ -3,11 +3,23 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import rootReducer from './reducers/indexReducers';
 
-const store = configureStore({
+import storage from 'redux-persist/lib/storage';
+import { persistStore, persistReducer } from 'redux-persist';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
   reducer: {
-    rootReducer,
+    persistedReducer,
+    // rootReducer,
   },
   middleware: [thunk, logger],
 });
 
-export default store;
+export const persistor = persistStore(store);
+// export default store;
