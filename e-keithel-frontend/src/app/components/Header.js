@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../assets/styles/Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
@@ -18,7 +18,15 @@ const Header = () => {
     // (state) => state.rootReducer.loginReducer
     // (state) => state.rootReducer.auth.currentUser.status.data
   );
-  console.log('user: ', user.loggedIn);
+  // console.log('user: ', user.loggedIn);
+  const basket = useSelector(
+    (state) => state.persistedReducer.basketReducer.basket
+  );
+  // console.log('basket: ', basket);
+
+  // useEffect(() => {
+  //   dispatch({ type: 'SEARCH_ITEM', item: search });
+  // });
 
   const handleAuthentication = () => {
     console.log('handle signout');
@@ -27,6 +35,21 @@ const Header = () => {
       navigate('/login');
     }
   };
+
+  const [search, setSearch] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const productList = useSelector(
+    (state) => state.persistedReducer.productListReducer.productList.data
+  );
+  useEffect(() => {
+    const searchResults = productList.filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase())
+    );
+    console.log('search results: ', searchResults);
+    setSearchResults(searchResults);
+    dispatch({ type: 'SEARCH_ITEM', item: searchResults });
+    navigate('/search');
+  }, [search]);
 
   const content = (
     <div className="header">
@@ -54,14 +77,21 @@ const Header = () => {
           <option>Video Games</option>
           <option>Women's Fashion</option>
         </select>
-        <input className="header__searchInput" type="text" />
+        <input
+          className="header__searchInput"
+          id="search"
+          type="text"
+          role="searchbox"
+          placeholder="Search products"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
         <button className="header__searchIcon">
           <SearchIcon />
         </button>
       </form>
       <div className="header__nav">
         <Link to={!user.loggedIn && '/login'}>
-          {/* eslint-disable-next-line */}
           <div className="header__option" onClick={handleAuthentication}>
             <span className="header__optionLineOne">
               Hello{' '}
@@ -79,7 +109,9 @@ const Header = () => {
         <Link to="/checkout">
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
-            <span className="header__optionLineTwo header__basketCount">0</span>
+            <span className="header__optionLineTwo header__basketCount">
+              {basket.length}
+            </span>
           </div>
         </Link>
         <div className="header__option">

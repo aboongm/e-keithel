@@ -3,6 +3,7 @@ import '../../assets/styles/Home.css';
 import banner2 from '../../assets/images/banner_2.jpg';
 import Category from './Category';
 import Popular from './Popular';
+import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div className="home">
@@ -10,10 +11,12 @@ const Home = () => (
       <img className="home__image" src={banner2} alt="" />
 
       <div className="home__row">
-        <Category
-          title="Electronics"
-          image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_TV_2X._SY304_CB432517900_.jpg"
-        />
+        <Link to="/products">
+          <Category
+            title="Electronics"
+            image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_TV_2X._SY304_CB432517900_.jpg"
+          />
+        </Link>
         <Category
           title="Computer & Accessories"
           image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg"

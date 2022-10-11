@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="footer__center">
           <p className="footer__title">Make Money with Us</p>
           <p className="footer__link">Sell products on Monaaz</p>
-          <p className="footer__link">Sell apps on Amazon</p>
+          <p className="footer__link">Sell apps on Monaaz</p>
           <p className="footer__link">Become an Affiliate</p>
           <p className="footer__link">Advertise Your Products</p>
           <p className="footer__link">Self-Publish with Us</p>
@@ -30,10 +30,10 @@ const Footer = () => {
         <div className="footer__right">
           <p className="footer__title">Contact Us</p>
           <p className="footer__link">
-            WhatsApp us : <span className="footer__contact">70003 70003</span>
+            WhatsApp us : <span className="footer__contact">89740 003780</span>
           </p>
           <p className="footer__link">
-            Call Us : <span className="footer__contact">1800 890 1222</span>
+            Call Us : <span className="footer__contact">1800 111 1111</span>
           </p>
           <p className="footer__complaint">
             Should you encounter any bugs, glitches, lack of functionality,

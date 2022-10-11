@@ -10,7 +10,7 @@ const productListRequest = (data) => ({
 });
 
 export const fetchProductList = () => (dispatch) => {
-  console.log('inside fetchProductList >>>');
+  // console.log('inside fetchProductList >>>');
   fetch(`${url}/products`, {
     method: 'GET',
     headers: {
@@ -18,7 +18,7 @@ export const fetchProductList = () => (dispatch) => {
     },
   }).then((res) => {
     if (res.ok) {
-      console.log('res: ', res);
+      // console.log('res: ', res);
       return res
         .json()
         .then((userJson) => dispatch(productListRequest(userJson)));

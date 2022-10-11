@@ -19,6 +19,7 @@ export const store = configureStore({
     // rootReducer,
   },
   middleware: [thunk, logger],
+  // middleware: [thunk],
 });
 
 export const persistor = persistStore(store);

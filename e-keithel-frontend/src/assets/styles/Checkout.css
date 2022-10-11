@@ -1,0 +1,36 @@
+.checkout {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fff;
+  height: max-content;
+}
+
+.checkout__ad {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+.checkout__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout__hello {
+  font-size: 18px;
+  margin: 0 12px;
+}
+
+.checkout__title {
+  font-size: 26px;
+  font-weight: 500;
+  margin-right: 18px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.checkout__details {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}

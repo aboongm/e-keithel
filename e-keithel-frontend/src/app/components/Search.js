@@ -1,28 +1,21 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchProductList } from '../../redux/reducers/product/productReducers';
 import Product from './Product';
-import '../../assets/styles/ProductList.css';
+import { useSelector } from 'react-redux';
 
-const ProductList = () => {
-  const dispatch = useDispatch();
-  const productList = useSelector(
-    (state) => state.persistedReducer.productListReducer.productList.data
+const Search = () => {
+  const searchResults = useSelector(
+    (state) => state.persistedReducer.searchReducer.searchResults
   );
-
-  useEffect(() => {
-    dispatch(fetchProductList());
-  }, [dispatch]);
+  console.log('search results: ', searchResults);
 
   return (
     <div className="productList">
       <div className="productList__container">
         <div className="productList__title">
-          <h1>Products</h1>
+          <h1>Search Results</h1>
         </div>
 
         <div className="productList__row">
-          {productList.map((product) => {
+          {searchResults.map((product) => {
             return (
               <Product
                 key={product.id}
@@ -40,4 +33,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default Search;

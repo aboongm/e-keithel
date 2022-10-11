@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../assets/styles/Product.css';
 import PropTypes from 'prop-types';
+// import { addToBasketRequest } from '../../redux/reducers/basket/basketReducers';
+import { useDispatch } from 'react-redux';
 
 const Product = ({ id, title, image, price, rating }) => {
+  const dispatch = useDispatch();
+
+  const addToBasket = () => {
+    console.log('clicked >>>>>');
+    // Add item to basket
+    const data = { id, title, image, price, rating };
+    // dispatch(addToBasketRequest(data));
+
+    dispatch({
+      type: 'ADD_TO_BASKET',
+      item: data,
+    });
+  };
+
   const content = (
     <div className="product">
       <div className="product__info">
@@ -20,14 +36,16 @@ const Product = ({ id, title, image, price, rating }) => {
         </div>
       </div>
       <img src={image} alt="" />
-      <button type="button">Add to Basket</button>
+      <button onClick={addToBasket} type="button">
+        Add to Basket
+      </button>
     </div>
   );
   return content;
 };
 
 Product.propTypes = {
-  // id: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string,
   image: PropTypes.string,
   price: PropTypes.number,
