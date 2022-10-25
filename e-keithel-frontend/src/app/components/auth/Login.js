@@ -54,7 +54,7 @@ const Login = () => {
         })
       );
       console.log(loginData.status.accessToken);
-      navigate('/dashboard');
+      navigate('/');
     }
   }, [isSuccessLogin]);
 

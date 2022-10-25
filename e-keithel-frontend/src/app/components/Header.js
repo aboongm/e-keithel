@@ -7,12 +7,15 @@ import { Avatar } from '@mui/material';
 import monaaz from '../../assets/images/monaaz_black.png';
 import aboong from '../../assets/images/1.png';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLoginUserMutation } from '../api/authApi';
 // import { logoutUser } from '../../redux/reducers/login/authActions';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {data} = useLoginUserMutation();
 
+  console.log(data);
   // const user = useSelector(
     // (state) => state.persistedReducer.loginReducer
     // (state) => state.rootReducer.loginReducer
