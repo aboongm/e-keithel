@@ -1,7 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginUser } from '../../../redux/reducers/login/authActions';
+// import { loginUser } from '../../../redux/reducers/login/authActions';
+import { useLoginUserMutation } from '../../api/authApi';
+
 import monaaz from '../../../assets/images/monaaz_black.png';
 import '../../../assets/styles/Login.css';
 
@@ -15,6 +17,7 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [loginUser, {isLoading: isLoadingLogin}] = useLoginUserMutation();
 
   useEffect(() => {
     emailRef.current.focus();
@@ -27,7 +30,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(loginUser({ email, password }));
+    dispatch(loginUser({ user: { email, password } }));
     navigate('/');
   };
 
