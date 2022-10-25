@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const apiSlice = createApi({
   reducerPath: "api",
@@ -13,14 +13,3 @@ export const apiSlice = createApi({
 })
 
 export const {useGetProductsQuery} = apiSlice;
-
-// export const apiSlice = createApi({
-//   reducerPath: "api",
-//     baseQuery: fetchBaseQuery({ 
-//       baseUrl: 'http://localhost:3500'
-//     }),
-//     tagTypes: ['Contact'],
-//     endpoints: (builder) => ({
-//       // query: () => "/contacts"
-//     })
-// }) 
