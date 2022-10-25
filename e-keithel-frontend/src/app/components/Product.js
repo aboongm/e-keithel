@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../assets/styles/Product.css';
 import PropTypes from 'prop-types';
-// import { addToBasketRequest } from '../../redux/reducers/basket/basketReducers';
 import { useDispatch } from 'react-redux';
 
 const Product = ({ id, title, image, price, rating }) => {
@@ -10,8 +9,7 @@ const Product = ({ id, title, image, price, rating }) => {
   const addToBasket = () => {
     console.log('clicked >>>>>');
     // Add item to basket
-    const data = { id, title, image, price, rating };
-    // dispatch(addToBasketRequest(data));
+    const data = { id, title, image, price, rating };    
 
     dispatch({
       type: 'ADD_TO_BASKET',

@@ -7,49 +7,49 @@ import { Avatar } from '@mui/material';
 import monaaz from '../../assets/images/monaaz_black.png';
 import aboong from '../../assets/images/1.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutUser } from '../../redux/reducers/login/authActions';
+// import { logoutUser } from '../../redux/reducers/login/authActions';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const user = useSelector(
-    (state) => state.persistedReducer.loginReducer
+  // const user = useSelector(
+    // (state) => state.persistedReducer.loginReducer
     // (state) => state.rootReducer.loginReducer
     // (state) => state.rootReducer.auth.currentUser.status.data
-  );
+  // );
   // console.log('user: ', user.loggedIn);
-  const basket = useSelector(
-    (state) => state.persistedReducer.basketReducer.basket
-  );
+  // const basket = useSelector(
+  //   (state) => state.persistedReducer.basketReducer.basket
+  // );
   // console.log('basket: ', basket);
 
   // useEffect(() => {
   //   dispatch({ type: 'SEARCH_ITEM', item: search });
   // });
 
-  const handleAuthentication = () => {
-    console.log('handle signout');
-    if (user.currentUser) {
-      dispatch(logoutUser());
-      navigate('/login');
-    }
-  };
+  // const handleAuthentication = () => {
+  //   console.log('handle signout');
+  //   if (user.currentUser) {
+  //     dispatch(logoutUser());
+  //     navigate('/login');
+  //   }
+  // };
 
-  const [search, setSearch] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const productList = useSelector(
-    (state) => state.persistedReducer.productListReducer.productList.data
-  );
-  useEffect(() => {
-    const searchResults = productList.filter((product) =>
-      product.title.toLowerCase().includes(search.toLowerCase())
-    );
-    console.log('search results: ', searchResults);
-    setSearchResults(searchResults);
-    dispatch({ type: 'SEARCH_ITEM', item: searchResults });
-    navigate('/search');
-  }, [search]);
+  // const [search, setSearch] = useState('');
+  // const [searchResults, setSearchResults] = useState([]);
+  // const productList = useSelector(
+  //   (state) => state.persistedReducer.productListReducer.productList.data
+  // );
+  // useEffect(() => {
+  //   const searchResults = productList.filter((product) =>
+  //     product.title.toLowerCase().includes(search.toLowerCase())
+  //   );
+  //   console.log('search results: ', searchResults);
+  //   setSearchResults(searchResults);
+  //   dispatch({ type: 'SEARCH_ITEM', item: searchResults });
+  //   navigate('/search');
+  // }, [search]);
 
   const content = (
     <div className="header">
@@ -83,25 +83,27 @@ const Header = () => {
           type="text"
           role="searchbox"
           placeholder="Search products"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          // value={search}
+          // onChange={(e) => setSearch(e.target.value)}
         />
         <button className="header__searchIcon">
           <SearchIcon />
         </button>
       </form>
       <div className="header__nav">
-        <Link to={!user.loggedIn && '/login'}>
-          <div className="header__option" onClick={handleAuthentication}>
+        {/* <Link to={!user.loggedIn && '/login'}> */}
+          <div className="header__option" 
+            // onClick={handleAuthentication}
+          >
             <span className="header__optionLineOne">
               Hello{' '}
-              {user.loggedIn ? user.currentUser.status.data.email : 'Guest!'}
+              {/* {user.loggedIn ? user.currentUser.status.data.email : 'Guest!'} */}
             </span>
             <span className="header__optionLineTwo">
-              {user.loggedIn ? 'Sign Out' : 'Sign In!'}
+              {/* {user.loggedIn ? 'Sign Out' : 'Sign In!'} */}
             </span>
           </div>
-        </Link>
+        {/* </Link> */}
         <div className="header__option">
           <span className="header__optionLineOne">Returns</span>
           <span className="header__optionLineTwo">& Orders</span>
@@ -110,7 +112,7 @@ const Header = () => {
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
             <span className="header__optionLineTwo header__basketCount">
-              {basket.length}
+              {/* {basket.length} */}
             </span>
           </div>
         </Link>
