@@ -7,6 +7,10 @@ import { useLoginUserMutation } from '../../api/authApi';
 import monaaz from '../../../assets/images/monaaz_black.png';
 import '../../../assets/styles/Login.css';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { setCredentials } from '../../api/authSlice';
+
 const Login = () => {
   const emailRef = useRef();
   const errRef = useRef();
@@ -17,7 +21,10 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [loginUser, {isLoading: isLoadingLogin}] = useLoginUserMutation();
+  const [
+    loginUser,
+    { data: loginData, isLoading: isLoadingLogin, isSuccess: isSuccessLogin },
+  ] = useLoginUserMutation();
 
   useEffect(() => {
     emailRef.current.focus();
@@ -30,9 +37,26 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(loginUser({ user: { email, password } }));
-    navigate('/');
+    if (email || password) {
+      loginUser({ user: { email, password } });
+    } else {
+      toast.error('Please enter your email and password');
+    }
   };
+
+  useEffect(() => {
+    if (isSuccessLogin) {
+      toast.success('Login successful');
+      dispatch(
+        setCredentials({
+          token: loginData.status.accessToken,
+          user: loginData.status.data,
+        })
+      );
+      console.log(loginData.status.accessToken);
+      navigate('/dashboard');
+    }
+  }, [isSuccessLogin]);
 
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);

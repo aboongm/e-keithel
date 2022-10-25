@@ -10,18 +10,20 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { persistor, store } from './redux/store';
 import { store } from './app/store';
 
-import { PersistGate } from 'redux-persist/integration/react';
+// import { PersistGate } from 'redux-persist/integration/react';
+import { ToastContainer } from 'react-toastify';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       {/* <PersistGate persistor={persistor}> */}
-        <BrowserRouter>
-          <Routes>
-            <Route path="/*" element={<App />} />
-          </Routes>
-        </BrowserRouter>
+      <BrowserRouter>
+        <ToastContainer />
+        <Routes>
+          <Route path="/*" element={<App />} />
+        </Routes>
+      </BrowserRouter>
       {/* </PersistGate> */}
     </Provider>
   </React.StrictMode>
