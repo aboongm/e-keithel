@@ -1,43 +1,59 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchProductList } from '../../redux/reducers/product/productReducers';
-import Product from './Product';
-import '../../assets/styles/ProductList.css';
+// import React, { useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { fetchProductList } from '../../redux/reducers/product/productReducers';
+// import Product from './Product';
+// import '../../assets/styles/ProductList.css';
+
+// const ProductList = () => {
+//   const dispatch = useDispatch();
+//   const productList = useSelector(
+//     (state) => state.persistedReducer.productListReducer.productList.data
+//   );
+
+//   useEffect(() => {
+//     dispatch(fetchProductList());
+//   }, [dispatch]);
+
+//   return (
+//     <div className="productList">
+//       <div className="productList__container">
+//         <div className="productList__title">
+//           <h1>Products</h1>
+//         </div>
+
+//         <div className="productList__row">
+//           {productList.map((product) => {
+//             return (
+//               <Product
+//                 key={product.id}
+//                 id={product.id}
+//                 title={product.title}
+//                 image={product.image}
+//                 price={product.price}
+//                 rating={product.rating}
+//               />
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ProductList;
+
+import React from 'react'
+// import { useGetProductsQuery } from '../../feature/productListSlice'
+import { useGetProductsQuery } from '../../app/api/apiSlice';
 
 const ProductList = () => {
-  const dispatch = useDispatch();
-  const productList = useSelector(
-    (state) => state.persistedReducer.productListReducer.productList.data
-  );
+  const {data} = useGetProductsQuery();
 
-  useEffect(() => {
-    dispatch(fetchProductList());
-  }, [dispatch]);
+  console.log(data);
 
   return (
-    <div className="productList">
-      <div className="productList__container">
-        <div className="productList__title">
-          <h1>Products</h1>
-        </div>
+    <div>ProductList</div>
+  )
+}
 
-        <div className="productList__row">
-          {productList.map((product) => {
-            return (
-              <Product
-                key={product.id}
-                id={product.id}
-                title={product.title}
-                image={product.image}
-                price={product.price}
-                rating={product.rating}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default ProductList;
+export default ProductList

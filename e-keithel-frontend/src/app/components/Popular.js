@@ -126,7 +126,7 @@ const Popular = () => {
       <h2>Popular Products</h2>
       <ul className="popular__row">
         {displayProducts.map((item) => (
-          <li className="details">
+          <li key={item.id} className="details">
             <div className="details__image">
               <img src={item.image} alt="" />
             </div>
