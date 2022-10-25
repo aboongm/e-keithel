@@ -11,9 +11,9 @@ import Search from './app/components/Search';
 function App() {
   return (
     <Routes>
-      {/* <Route path="/login" element={<Login />} /> */}
-      {/* <Route path="/signup" element={<Signup />} /> */}
-      {/* <Route path="/" element={<Layout />}> */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/products" element={<ProductList />} />
         <Route path="/checkout" element={<Checkout />} />
@@ -23,7 +23,7 @@ function App() {
         {/* <Route
           element={<RequireAuth allowedRoles={[ROLES.Manager, ROLES.Admin]} />}
         ></Route> */}
-      {/* </Route> */}
+      </Route>
     </Routes>
   );
 }

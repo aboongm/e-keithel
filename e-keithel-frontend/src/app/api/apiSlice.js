@@ -6,10 +6,6 @@ export const apiSlice = createApi({
     baseUrl: 'http://localhost:3000'
   }),
   endpoints: (builder) => ({
-    getProducts: builder.query({
-      query: () => "/products"
-    })
+    
   })
 })
-
-export const {useGetProductsQuery} = apiSlice;
