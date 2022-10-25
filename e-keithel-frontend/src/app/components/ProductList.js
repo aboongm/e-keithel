@@ -8,15 +8,16 @@ import { useGetProductsQuery } from '../api/apiSlice';
 const ProductList = () => {
   // const dispatch = useDispatch();
   // const productList = useSelector(
-    // (state) => state.persistedReducer.productListReducer.productList.data
+  // (state) => state.persistedReducer.productListReducer.productList.data
   // );
 
-  const {data: productList, isLoading: isLoadingProduct } = useGetProductsQuery();
-  
+  const { data: productList, isLoading: isLoadingProduct } =
+    useGetProductsQuery();
+
   console.log(productList);
 
-  if(isLoadingProduct) {
-    return <h4>Loading...</h4>
+  if (isLoadingProduct) {
+    return <h4>Loading...</h4>;
   }
 
   // useEffect(() => {
@@ -31,10 +32,10 @@ const ProductList = () => {
         </div>
 
         <div className="productList__row">
-          {productList.map((product) => {
+          {productList.map((product, index) => {
             return (
               <Product
-                key={product.id}
+                key={index}
                 id={product.id}
                 title={product.title}
                 image={product.image}

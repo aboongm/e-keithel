@@ -30,8 +30,8 @@ const Product = ({ id, title, image, price, rating }) => {
         <div className="product__rating">
           {Array(rating)
             .fill()
-            .map((_) => (
-              <p key={_}>&#11088;</p>
+            .map((index) => (
+              <p key={index}>&#11088;</p>
             ))}
         </div>
       </div>
@@ -45,10 +45,10 @@ const Product = ({ id, title, image, price, rating }) => {
 };
 
 Product.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string,
   image: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   rating: PropTypes.number,
 };
 
