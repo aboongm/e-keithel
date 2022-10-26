@@ -6,11 +6,8 @@ import CheckoutProduct from './CheckoutProduct';
 import Subtotal from './Subtotal';
 
 const Checkout = () => {
-  const user = useSelector((state) => state.persistedReducer.loginReducer);
-  const basket = useSelector(
-    (state) => state.persistedReducer.basketReducer.basket
-  );
-  console.log('basket: ', basket);
+  const user = useSelector((state) => state.auth);
+  const basket = useSelector((state) => state.basket.basket);
 
   const content = (
     <div className="checkout">
@@ -26,8 +23,7 @@ const Checkout = () => {
       <div className="checkout__container">
         <div>
           <h2 className="checkout__hello">
-            Hello{' '}
-            {user.loggedIn ? user.currentUser.status.data.email : 'Guest!'}
+            Hello {user.isLoggedIn ? user.user.email : 'Guest!'}
           </h2>
           <h2 className="checkout__title">Your Shopping Basket</h2>
         </div>
@@ -35,6 +31,7 @@ const Checkout = () => {
           <div className="checkout__left">
             {basket.map((item) => (
               <CheckoutProduct
+                key={item.id}
                 id={item.id}
                 title={item.title}
                 image={item.image}

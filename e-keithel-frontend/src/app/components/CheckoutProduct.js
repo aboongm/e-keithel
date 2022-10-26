@@ -1,15 +1,14 @@
 import React from 'react';
 import '../../assets/styles/CheckoutProduct.css';
 import { useDispatch } from 'react-redux';
+import { removingFromBasket } from '../api/basketSlice';
+import { toast } from 'react-toastify';
 
 const CheckoutProduct = ({ id, title, price, image, rating }) => {
   const dispatch = useDispatch();
   const removeFromBasket = () => {
-    console.log('remove from basket');
-    dispatch({
-      type: 'REMOVE_FROM_BASKET',
-      id,
-    });
+    dispatch(removingFromBasket(id));
+    toast.success('Item removed from basket');
   };
 
   const content = (

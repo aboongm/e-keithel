@@ -26,7 +26,7 @@ export const rootReducers = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [productListSlice.reducerPath]: productListSlice.reducer,
   basket: basketReducer,
-  [basketSlice.reducerPath]: basketSlice.reducer
+  // [basketSlice.reducerPath]: basketSlice.reducer
 });
 const persistedReducer = persistReducer(persistConfig, rootReducers);
 export const store = configureStore({
