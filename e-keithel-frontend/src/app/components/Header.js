@@ -7,26 +7,14 @@ import { Avatar } from '@mui/material';
 import monaaz from '../../assets/images/monaaz_black.png';
 import aboong from '../../assets/images/1.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLoginUserMutation } from '../api/authApi';
-// import { logoutUser } from '../../redux/reducers/login/authActions';
 import { logOut } from '../api/authSlice';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const {data} = useLoginUserMutation();
-  const user = useSelector(state => state.auth)
 
-  // const user = useSelector(
-    // (state) => state.persistedReducer.loginReducer
-    // (state) => state.rootReducer.loginReducer
-    // (state) => state.rootReducer.auth.currentUser.status.data
-  // );
-  // console.log('user: ', user.loggedIn);
-  // const basket = useSelector(
-  //   (state) => state.persistedReducer.basketReducer.basket
-  // );
-  // console.log('basket: ', basket);
+  const user = useSelector((state) => state.auth);
+  const basket = useSelector((state) => state.basket.basket);
 
   // useEffect(() => {
   //   dispatch({ type: 'SEARCH_ITEM', item: search });
@@ -34,7 +22,6 @@ const Header = () => {
 
   const handleAuthentication = () => {
     if (user.user) {
-      // console.log('handle signout');
       dispatch(logOut());
       navigate('/login');
     }
@@ -96,12 +83,9 @@ const Header = () => {
       </form>
       <div className="header__nav">
         <Link to={!user.isLoggedIn && '/login'}>
-          <div className="header__option" 
-            onClick={handleAuthentication}
-          >
+          <div className="header__option" onClick={handleAuthentication}>
             <span className="header__optionLineOne">
-              Hello{' '}
-              {user.isLoggedIn ? user.user.email : 'Guest!'}
+              Hello {user.isLoggedIn ? user.user.email : 'Guest!'}
             </span>
             <span className="header__optionLineTwo">
               {user.isLoggedIn ? 'Sign Out' : 'Sign In!'}
@@ -116,7 +100,7 @@ const Header = () => {
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
             <span className="header__optionLineTwo header__basketCount">
-              {/* {basket.length} */}
+              {basket.length}
             </span>
           </div>
         </Link>
