@@ -2,13 +2,13 @@ import React from 'react';
 import '../../assets/styles/Subtotal.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getBasketTotal } from '../../redux/reducers/basket/basketReducers';
+
+export const getBasketTotal = (basket) =>
+  basket?.reduce((amount, item) => parseInt(item.price) + parseInt(amount), 0);
 
 const Subtotal = () => {
   const navigate = useNavigate();
-  const basket = useSelector(
-    (state) => state.persistedReducer.basketReducer.basket
-  );
+  const basket = useSelector((state) => state.basket.basket);
 
   const content = (
     <div className="subtotal">
