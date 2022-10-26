@@ -5,6 +5,7 @@ import authReducer from './api/authSlice';
 import { authApi } from './api/authApi';
 import { combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
+import basketReducer from './api/basketSlice';
 import {
   persistReducer,
   FLUSH,
@@ -14,6 +15,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import basketSlice from './api/basketSlice';
 const persistConfig = {
   key: 'root',
   storage,
@@ -23,6 +25,8 @@ export const rootReducers = combineReducers({
   auth: authReducer,
   [authApi.reducerPath]: authApi.reducer,
   [productListSlice.reducerPath]: productListSlice.reducer,
+  basket: basketReducer,
+  [basketSlice.reducerPath]: basketSlice.reducer
 });
 const persistedReducer = persistReducer(persistConfig, rootReducers);
 export const store = configureStore({

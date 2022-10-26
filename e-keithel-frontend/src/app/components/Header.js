@@ -17,7 +17,6 @@ const Header = () => {
   // const {data} = useLoginUserMutation();
   const user = useSelector(state => state.auth)
 
-  console.log(user);
   // const user = useSelector(
     // (state) => state.persistedReducer.loginReducer
     // (state) => state.rootReducer.loginReducer
@@ -35,7 +34,7 @@ const Header = () => {
 
   const handleAuthentication = () => {
     if (user.user) {
-      console.log('handle signout');
+      // console.log('handle signout');
       dispatch(logOut());
       navigate('/login');
     }

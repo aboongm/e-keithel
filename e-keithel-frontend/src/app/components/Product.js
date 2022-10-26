@@ -2,6 +2,8 @@ import React from 'react';
 import '../../assets/styles/Product.css';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import basketSlice from '../api/basketSlice';
+import { setBasket } from '../api/basketSlice';
 
 const Product = ({ id, title, image, price, rating }) => {
   const dispatch = useDispatch();
@@ -10,11 +12,13 @@ const Product = ({ id, title, image, price, rating }) => {
     console.log('clicked >>>>>');
     // Add item to basket
     const data = { id, title, image, price, rating };    
+    console.log('product data: ', data);
 
-    dispatch({
-      type: 'ADD_TO_BASKET',
-      item: data,
-    });
+    dispatch(setBasket(data))
+    // dispatch({
+    //   type: 'ADD_TO_BASKET',
+    //   item: data,
+    // });
   };
 
   const content = (

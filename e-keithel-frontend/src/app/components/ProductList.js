@@ -7,8 +7,6 @@ const ProductList = () => {
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
 
-  console.log(productList);
-
   if (isLoadingProduct) {
     return <h4>Loading...</h4>;
   }
