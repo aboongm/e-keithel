@@ -49,8 +49,9 @@ const Login = () => {
       toast.success('Login successful');
       dispatch(
         setCredentials({
-          token: loginData.status.accessToken,
           user: loginData.status.data,
+          token: loginData.status.accessToken,
+          isLoggedIn: true
         })
       );
       console.log(loginData.status.accessToken);

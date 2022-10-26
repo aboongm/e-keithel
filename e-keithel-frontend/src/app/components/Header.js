@@ -9,13 +9,15 @@ import aboong from '../../assets/images/1.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { useLoginUserMutation } from '../api/authApi';
 // import { logoutUser } from '../../redux/reducers/login/authActions';
+import { logOut } from '../api/authSlice';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {data} = useLoginUserMutation();
+  // const {data} = useLoginUserMutation();
+  const user = useSelector(state => state.auth)
 
-  console.log(data);
+  console.log(user);
   // const user = useSelector(
     // (state) => state.persistedReducer.loginReducer
     // (state) => state.rootReducer.loginReducer
@@ -31,13 +33,13 @@ const Header = () => {
   //   dispatch({ type: 'SEARCH_ITEM', item: search });
   // });
 
-  // const handleAuthentication = () => {
-  //   console.log('handle signout');
-  //   if (user.currentUser) {
-  //     dispatch(logoutUser());
-  //     navigate('/login');
-  //   }
-  // };
+  const handleAuthentication = () => {
+    if (user.user) {
+      console.log('handle signout');
+      dispatch(logOut());
+      navigate('/login');
+    }
+  };
 
   // const [search, setSearch] = useState('');
   // const [searchResults, setSearchResults] = useState([]);
@@ -94,19 +96,19 @@ const Header = () => {
         </button>
       </form>
       <div className="header__nav">
-        {/* <Link to={!user.loggedIn && '/login'}> */}
+        <Link to={!user.isLoggedIn && '/login'}>
           <div className="header__option" 
-            // onClick={handleAuthentication}
+            onClick={handleAuthentication}
           >
             <span className="header__optionLineOne">
               Hello{' '}
-              {/* {user.loggedIn ? user.currentUser.status.data.email : 'Guest!'} */}
+              {user.isLoggedIn ? user.user.email : 'Guest!'}
             </span>
             <span className="header__optionLineTwo">
-              {/* {user.loggedIn ? 'Sign Out' : 'Sign In!'} */}
+              {user.isLoggedIn ? 'Sign Out' : 'Sign In!'}
             </span>
           </div>
-        {/* </Link> */}
+        </Link>
         <div className="header__option">
           <span className="header__optionLineOne">Returns</span>
           <span className="header__optionLineTwo">& Orders</span>
