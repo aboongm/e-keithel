@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-// import { loginUser } from '../../../redux/reducers/login/authActions';
 import { useLoginUserMutation } from '../../api/authApi';
 
 import monaaz from '../../../assets/images/monaaz_black.png';
@@ -51,10 +50,9 @@ const Login = () => {
         setCredentials({
           user: loginData.status.data,
           token: loginData.status.accessToken,
-          isLoggedIn: true
+          isLoggedIn: true,
         })
       );
-      // console.log(loginData.status.accessToken);
       navigate('/');
     }
   }, [isSuccessLogin]);

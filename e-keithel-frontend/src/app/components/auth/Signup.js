@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-// import { signupUser } from '../../../redux/reducers/login/authActions';
 import monaaz from '../../../assets/images/monaaz_black.png';
 import '../../../assets/styles/Signup.css';
 import { useRegisterUserMutation } from '../../api/authApi';
@@ -20,8 +19,9 @@ const Signup = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [registerUser, {data: registerData, isSuccess: isSuccessRegister}] = useRegisterUserMutation();
-  console.log("signup: ", registerData, isSuccessRegister);
+  const [registerUser, { data: registerData, isSuccess: isSuccessRegister }] =
+    useRegisterUserMutation();
+  console.log('signup: ', registerData, isSuccessRegister);
 
   useEffect(() => {
     nameRef.current.focus();
@@ -35,27 +35,24 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if(email && password) {
-      await registerUser({ user: { name, email, password }});
+    if (email && password) {
+      await registerUser({ user: { name, email, password } });
     }
   };
-  
+
   useEffect(() => {
-    
     if (isSuccessRegister) {
       toast.success('Sign Up Successful');
       dispatch(
         setCredentials({
           user: registerData.status.data,
           token: registerData.status.accessToken,
-          isLoggedIn: true
+          isLoggedIn: true,
         })
       );
-      // console.log(registerData.status.accessToken);
       navigate('/');
     }
   }, [isSuccessRegister]);
-
 
   const handleNameInput = (e) => setName(e.target.value);
   const handleEmailInput = (e) => setEmail(e.target.value);
