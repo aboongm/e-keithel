@@ -8,6 +8,8 @@ import monaaz from '../../assets/images/monaaz_black.png';
 import aboong from '../../assets/images/1.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../api/authSlice';
+import { useGetProductsQuery } from '../api/productListSlice';
+import { getSearchResult } from '../api/searchSlice';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ const Header = () => {
 
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
-  console.log('basket: ', basket);
+  // console.log('basket: ', basket);
 
   // useEffect(() => {
   //   dispatch({ type: 'SEARCH_ITEM', item: search });
@@ -28,20 +30,24 @@ const Header = () => {
     }
   };
 
-  // const [search, setSearch] = useState('');
-  // const [searchResults, setSearchResults] = useState([]);
+  const [search, setSearch] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  const { data: productList, isLoading: isLoadingProduct } =
+    useGetProductsQuery();
+
   // const productList = useSelector(
   //   (state) => state.persistedReducer.productListReducer.productList.data
   // );
-  // useEffect(() => {
-  //   const searchResults = productList.filter((product) =>
-  //     product.title.toLowerCase().includes(search.toLowerCase())
-  //   );
-  //   console.log('search results: ', searchResults);
-  //   setSearchResults(searchResults);
-  //   dispatch({ type: 'SEARCH_ITEM', item: searchResults });
-  //   navigate('/search');
-  // }, [search]);
+  useEffect(() => {
+    const searchResults = productList.filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase())
+    );
+    // console.log('search results: ', searchResults);
+    setSearchResults(searchResults);
+    dispatch(getSearchResult(searchResults));
+    navigate('/search');
+  }, [search]);
 
   const content = (
     <div className="header">
@@ -75,8 +81,8 @@ const Header = () => {
           type="text"
           role="searchbox"
           placeholder="Search products"
-          // value={search}
-          // onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
         <button className="header__searchIcon">
           <SearchIcon />
