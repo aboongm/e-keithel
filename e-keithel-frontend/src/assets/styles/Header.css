@@ -94,10 +94,11 @@
 
 .header__select {
   padding-left: 5px;
-  width: 54px;
-  height: 32px;
+  /* width: 54px; */
+  height: 46px;
   background-color: #d5d1d1;
   border: 1px solid #d5d1d1;
+  outline: none;
 }
 
 .header__select > option {
@@ -105,11 +106,12 @@
 }
 
 .header__searchInput {
-  height: 32px;
+  height: 46px;
   padding: 10px;
   border: none;
   width: 100%;
   border: 1px solid #d5d1d1;
+  outline: none;
 }
 
 .header__searchIcon {
@@ -117,8 +119,8 @@
   align-items: center;
   justify-content: center;
   padding: 5px;
-  width: 32px;
-  height: 32px;
+  width: 46px;
+  height: 46px;
   background-color: #d5d1d1;
   border: 1px solid #d5d1d1;
 }
