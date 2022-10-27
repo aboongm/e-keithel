@@ -15,6 +15,7 @@ const Header = () => {
 
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
+  console.log('basket: ', basket);
 
   // useEffect(() => {
   //   dispatch({ type: 'SEARCH_ITEM', item: search });

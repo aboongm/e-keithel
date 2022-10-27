@@ -6,7 +6,7 @@ import CheckoutProduct from './CheckoutProduct';
 // import axios from 'axios';
 
 import { useSelector } from 'react-redux';
-import { getBasketTotal } from '../../redux/reducers/basket/basketReducers';
+import { getBasketTotal } from '../api/helpers';
 
 const Payment = () => {
   const user = useSelector((state) => state.auth);

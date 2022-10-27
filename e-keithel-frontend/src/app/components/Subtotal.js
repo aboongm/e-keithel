@@ -2,9 +2,7 @@ import React from 'react';
 import '../../assets/styles/Subtotal.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-export const getBasketTotal = (basket) =>
-  basket?.reduce((amount, item) => parseInt(item.price) + parseInt(amount), 0);
+import { getBasketTotal } from '../api/helpers';
 
 const Subtotal = () => {
   const navigate = useNavigate();
