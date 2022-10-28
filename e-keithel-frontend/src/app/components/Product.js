@@ -1,22 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../assets/styles/Product.css';
 import PropTypes from 'prop-types';
-// import { addToBasketRequest } from '../../redux/reducers/basket/basketReducers';
 import { useDispatch } from 'react-redux';
+import { addingToBasket } from '../api/basketSlice';
+import { toast } from 'react-toastify';
 
 const Product = ({ id, title, image, price, rating }) => {
   const dispatch = useDispatch();
 
   const addToBasket = () => {
-    console.log('clicked >>>>>');
-    // Add item to basket
     const data = { id, title, image, price, rating };
-    // dispatch(addToBasketRequest(data));
-
-    dispatch({
-      type: 'ADD_TO_BASKET',
-      item: data,
-    });
+    dispatch(addingToBasket(data));
+    if (data) {
+      toast.success('Item added to basket');
+    }
   };
 
   const content = (
@@ -29,9 +26,9 @@ const Product = ({ id, title, image, price, rating }) => {
         </p>
         <div className="product__rating">
           {Array(rating)
-            .fill()
-            .map((_) => (
-              <p key={_}>&#11088;</p>
+            .fill(1)
+            .map((item, index) => (
+              <p key={index}>&#11088; </p>
             ))}
         </div>
       </div>
@@ -45,10 +42,10 @@ const Product = ({ id, title, image, price, rating }) => {
 };
 
 Product.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   title: PropTypes.string,
   image: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   rating: PropTypes.number,
 };
 

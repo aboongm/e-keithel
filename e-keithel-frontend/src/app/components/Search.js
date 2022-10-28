@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 
 const Search = () => {
   const searchResults = useSelector(
-    (state) => state.persistedReducer.searchReducer.searchResults
+    (state) => state.search.search
   );
-  console.log('search results: ', searchResults);
+  console.log('search results 1: ', searchResults);
 
   return (
     <div className="productList">

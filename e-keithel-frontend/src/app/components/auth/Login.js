@@ -1,9 +1,14 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { loginUser } from '../../../redux/reducers/login/authActions';
+import { useLoginUserMutation } from '../../api/authApi';
+
 import monaaz from '../../../assets/images/monaaz_black.png';
 import '../../../assets/styles/Login.css';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { setCredentials } from '../../api/authSlice';
 
 const Login = () => {
   const emailRef = useRef();
@@ -15,6 +20,10 @@ const Login = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [
+    loginUser,
+    { data: loginData, isLoading: isLoadingLogin, isSuccess: isSuccessLogin },
+  ] = useLoginUserMutation();
 
   useEffect(() => {
     emailRef.current.focus();
@@ -27,9 +36,26 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(loginUser({ email, password }));
-    navigate('/');
+    if (email || password) {
+      loginUser({ user: { email, password } });
+    } else {
+      toast.error('Please enter your email and password');
+    }
   };
+
+  useEffect(() => {
+    if (isSuccessLogin) {
+      toast.success('Login successful');
+      dispatch(
+        setCredentials({
+          user: loginData.status.data,
+          token: loginData.status.accessToken,
+          isLoggedIn: true,
+        })
+      );
+      navigate('/');
+    }
+  }, [isSuccessLogin]);
 
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);

@@ -1,18 +1,15 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchProductList } from '../../redux/reducers/product/productReducers';
+import React from 'react';
 import Product from './Product';
 import '../../assets/styles/ProductList.css';
+import { useGetProductsQuery } from '../api/productListSlice';
 
 const ProductList = () => {
-  const dispatch = useDispatch();
-  const productList = useSelector(
-    (state) => state.persistedReducer.productListReducer.productList.data
-  );
+  const { data: productList, isLoading: isLoadingProduct } =
+    useGetProductsQuery();
 
-  useEffect(() => {
-    dispatch(fetchProductList());
-  }, [dispatch]);
+  if (isLoadingProduct) {
+    return <h4>Loading...</h4>;
+  }
 
   return (
     <div className="productList">
@@ -22,10 +19,10 @@ const ProductList = () => {
         </div>
 
         <div className="productList__row">
-          {productList.map((product) => {
+          {productList.map((product, index) => {
             return (
               <Product
-                key={product.id}
+                key={index}
                 id={product.id}
                 title={product.title}
                 image={product.image}

@@ -7,48 +7,38 @@ import { Avatar } from '@mui/material';
 import monaaz from '../../assets/images/monaaz_black.png';
 import aboong from '../../assets/images/1.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { logoutUser } from '../../redux/reducers/login/authActions';
+import { logOut } from '../api/authSlice';
+import { useGetProductsQuery } from '../api/productListSlice';
+import { getSearchResult } from '../api/searchSlice';
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const user = useSelector(
-    (state) => state.persistedReducer.loginReducer
-    // (state) => state.rootReducer.loginReducer
-    // (state) => state.rootReducer.auth.currentUser.status.data
-  );
-  // console.log('user: ', user.loggedIn);
-  const basket = useSelector(
-    (state) => state.persistedReducer.basketReducer.basket
-  );
-  // console.log('basket: ', basket);
-
-  // useEffect(() => {
-  //   dispatch({ type: 'SEARCH_ITEM', item: search });
-  // });
+  const user = useSelector((state) => state.auth);
+  const basket = useSelector((state) => state.basket.basket);
 
   const handleAuthentication = () => {
-    console.log('handle signout');
-    if (user.currentUser) {
-      dispatch(logoutUser());
+    if (user.user) {
+      dispatch(logOut());
       navigate('/login');
     }
   };
 
   const [search, setSearch] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
-  const productList = useSelector(
-    (state) => state.persistedReducer.productListReducer.productList.data
-  );
+
+  const { data: productList, isLoading: isLoadingProduct } =
+    useGetProductsQuery();
+
   useEffect(() => {
     const searchResults = productList.filter((product) =>
       product.title.toLowerCase().includes(search.toLowerCase())
     );
-    console.log('search results: ', searchResults);
-    setSearchResults(searchResults);
-    dispatch({ type: 'SEARCH_ITEM', item: searchResults });
-    navigate('/search');
+
+    if (search !== '') {
+      dispatch(getSearchResult(searchResults));
+      navigate('/search');
+    }
   }, [search]);
 
   const content = (
@@ -91,14 +81,13 @@ const Header = () => {
         </button>
       </form>
       <div className="header__nav">
-        <Link to={!user.loggedIn && '/login'}>
+        <Link to={!user.isLoggedIn && '/login'}>
           <div className="header__option" onClick={handleAuthentication}>
             <span className="header__optionLineOne">
-              Hello{' '}
-              {user.loggedIn ? user.currentUser.status.data.email : 'Guest!'}
+              Hello {user.isLoggedIn ? user.user.email : 'Guest!'}
             </span>
             <span className="header__optionLineTwo">
-              {user.loggedIn ? 'Sign Out' : 'Sign In!'}
+              {user.isLoggedIn ? 'Sign Out' : 'Sign In!'}
             </span>
           </div>
         </Link>
