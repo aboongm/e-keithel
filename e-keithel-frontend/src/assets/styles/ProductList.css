@@ -1,14 +1,14 @@
 .productList {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   margin: 0 auto;
   max-width: 100%;
-  background-color: lightgray;
+  background-color: lightgray; */
 }
 
 .productList__container {
-  display: grid;
-  width: 100%;
+  /* display: grid;
+  width: 100%; */
 }
 
 .productList__title {
@@ -24,11 +24,11 @@
 }
 
 .productList__row {
-  z-index: 1;
+  /* z-index: 1;
   max-width: 1440px;
   margin: 0 auto;
   padding: 12px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 12px; */
 }
