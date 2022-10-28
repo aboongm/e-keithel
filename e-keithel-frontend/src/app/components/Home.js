@@ -6,11 +6,16 @@ import Popular from './Popular';
 import { Link } from 'react-router-dom';
 
 const Home = () => (
-  <div className="home">
+  <div className="">
+    <div className="">
+      <img className="" src={banner2} alt="" />
+
+      <div className="">
+        {/* <div className="home">
     <div className="home__container">
       <img className="home__image" src={banner2} alt="" />
 
-      <div className="home__row">
+      <div className="home__row"> */}
         <Link to="/products">
           <Category
             title="Electronics"

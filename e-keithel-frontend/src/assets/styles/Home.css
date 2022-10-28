@@ -23,7 +23,7 @@
   gap: 12px;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .home__row {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -32,3 +32,9 @@
     margin-bottom: -150px;
   }
 }
+
+@media (max-width: 768px) {
+  .hidden {
+    display: none;
+  }
+} */
