@@ -23,27 +23,19 @@
   display: flex;
   flex-direction: column-reverse;
   align-items: flex-start;
+  gap: 4px;
   margin-top: 6px;
 }
 
 .header__select {
-  padding-left: 5px;
+  padding-left: 10px;
   width: 100%;
   height: 46px;
   background-color: #d5d1d1;
   border: 1px solid #d5d1d1;
   outline: none;
   margin-top: 6px;
-
-  /* background-color: white;
-  border: thin solid blue; 
-  display: inline-block;
-  font: inherit;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em; */
-
-  /* reset */
-
+  border-radius: 4px;
   margin: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -59,11 +51,12 @@
 
 .header__searchInput {
   height: 46px;
-  padding: 10px;
-  border: none;
+  padding: 10px 10px 10px 20px;
   width: 100%;
   border: 1px solid #d5d1d1;
   outline: none;
+  border-radius: 22px;
+  margin: 0 6px;
 }
 
 .header__searchIcon {
@@ -75,6 +68,7 @@
   height: 46px;
   background-color: #d5d1d1;
   border: 1px solid #d5d1d1;
+  border-radius: 22px;
 }
 
 .header__optionLineOne {
