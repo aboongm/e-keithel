@@ -5,8 +5,8 @@ import ios_store from '../../assets/images/ios_store.png';
 
 const Footer = () => {
   const content = (
-    <div className="">
-      <div className="">
+    <div className="footer">
+      <div className="footer__container">
         <div className="footer__left">
           <p className="footer__title">Get to Know Us</p>
           <p className="footer__link">About Monaaz</p>

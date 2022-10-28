@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 
 const Category = ({ title, image }) => {
   const content = (
-    <div className="category shadow-lg">
+    <li className="category shadow-lg">
       <h1 className="uppercase">{title}</h1>
       <img src={image} alt="" />
       <button type="button">Shop Now</button>
-    </div>
+    </li>
   );
   return content;
 };
