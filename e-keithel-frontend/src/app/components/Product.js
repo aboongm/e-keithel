@@ -17,7 +17,7 @@ const Product = ({ id, title, image, price, rating }) => {
   };
 
   const content = (
-    <div className="product">
+    <li className="product shadow-lg">
       <div className="product__info">
         <p>{title}</p>
         <p className="product__price">
@@ -36,7 +36,7 @@ const Product = ({ id, title, image, price, rating }) => {
       <button onClick={addToBasket} type="button">
         Add to Basket
       </button>
-    </div>
+    </li>
   );
   return content;
 };

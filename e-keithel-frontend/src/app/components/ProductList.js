@@ -18,7 +18,7 @@ const ProductList = () => {
           <h1>Products</h1>
         </div>
 
-        <div className="productList__row">
+        <ul className="productList__row">
           {productList.map((product, index) => {
             return (
               <Product
@@ -31,7 +31,7 @@ const ProductList = () => {
               />
             );
           })}
-        </div>
+        </ul>
       </div>
     </div>
   );

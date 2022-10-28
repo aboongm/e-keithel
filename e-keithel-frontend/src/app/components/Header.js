@@ -44,7 +44,7 @@ const Header = () => {
   const [show, setshow] = useState(false);
   const content = (
     <nav className="2xl:container 2xl:mx-auto w-full bg-white">
-      <div className={`${show ? 'hide' : 'block'} header`}>
+      <div className={`${show ? 'hide' : 'block'} header `}>
         <Link to="/">
           <img className="header__logo" src={monaaz} alt="mazoon" />
         </Link>

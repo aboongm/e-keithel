@@ -3,23 +3,7 @@
   grid-template-columns: repeat(1, 1fr);
 }
 
-/* @media (max-width: 1024px) {
-  .home__row {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .home__image {
-    margin-bottom: -150px;
-  }
-} */
 @media (min-width: 640px) {
-  /* .home {
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 100%;
-    background-color: lightgray;
-  } */
   .home__image {
     width: 100%;
     z-index: -1;
