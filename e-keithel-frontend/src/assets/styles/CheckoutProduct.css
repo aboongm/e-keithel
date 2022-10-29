@@ -1,8 +1,15 @@
 .checkoutProduct {
-  display: flex;
+  /* display: flex;
   border: 1px solid #d1d1d1;
   margin: 12px;
-  padding: 12px;
+  padding: 12px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 20px 20px;
+  margin: 20px;
 }
 
 .checkoutProduct__info {
@@ -19,9 +26,13 @@
 }
 
 .checkoutProduct__image {
-  object-fit: contain;
+  /* object-fit: contain;
   width: 180px;
-  height: 180px;
+  height: 180px; */
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .checkoutProduct__rating {
