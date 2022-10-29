@@ -51,23 +51,24 @@ const Header = () => {
         <form className="header__search">
           <select className="header__select classic">
             <option>All</option>
-            <option>Arts & Crafts</option>
+            {/* <option>Arts & Crafts</option> */}
             <option>Personal Care</option>
-            <option>Books</option>
-            <option>Children's Fashion</option>
+            {/* <option>Books</option>
+            <option>Children's Fashion</option> */}
             <option>Computers</option>
-            <option>Digital Music</option>
+            {/* <option>Digital Music</option> */}
             <option>Electronics</option>
             <option>Home & Kitchen</option>
             <option>Men's Fashion</option>
-            <option>Movie & TV</option>
-            <option>Pet Supplies</option>
-            <option>Sports & Outdoors</option>
+            {/* <option>Movie & TV</option> */}
+            {/* <option>Pet Supplies</option> */}
+            {/* <option>Sports & Outdoors</option> */}
             <option>Software</option>
             <option>Home Improvements</option>
             <option>Toys & Games</option>
             <option>Video Games</option>
             <option>Women's Fashion</option>
+            <option>Miscellaneous</option>
           </select>
           <div className="input">
             <input

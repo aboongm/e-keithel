@@ -10,11 +10,6 @@ const Home = () => (
     <div className="">
       <img className="home__image" src={banner2} alt="" />
 
-      {/* <div className="">
-        <div className="home">
-    <div className="home__container">
-      <img className="home__image" src={banner2} alt="" /> */}
-
       <ul className="home__row">
         <Link to="/products">
           <Category

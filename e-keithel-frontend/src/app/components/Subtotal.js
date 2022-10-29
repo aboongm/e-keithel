@@ -3,10 +3,21 @@ import '../../assets/styles/Subtotal.css';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getBasketTotal } from '../api/helpers';
+import { toast } from 'react-toastify';
 
 const Subtotal = () => {
   const navigate = useNavigate();
+  const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
+
+  const handlePayment = () => {
+    if (user.user) {
+      navigate('/payment');
+    } else {
+      toast.error('Please login first!');
+      navigate('/login');
+    }
+  };
 
   const content = (
     <div className="subtotal shadow-lg">
@@ -18,7 +29,7 @@ const Subtotal = () => {
         <input type="checkbox" />
         This order contains a gift
       </small>
-      <button onClick={() => navigate('/payment')} type="button">
+      <button onClick={handlePayment} type="button">
         Proceed in Checkout
       </button>
     </div>
