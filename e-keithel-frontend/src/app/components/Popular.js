@@ -108,7 +108,8 @@ const Popular = () => {
   // const pages = _.range(1, pagesCount + 1);
   // console.log('pages', pages);
 
-  const productsPerPage = 8;
+  const productsPerPage = 6;
+  console.log('screen width: ', window.screen.width);
   const pageVisited = pageNumber * productsPerPage;
   const displayProducts = popularProducts.slice(
     pageVisited,
