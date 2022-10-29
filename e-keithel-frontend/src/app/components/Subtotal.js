@@ -9,7 +9,7 @@ const Subtotal = () => {
   const basket = useSelector((state) => state.basket.basket);
 
   const content = (
-    <div className="subtotal">
+    <div className="subtotal shadow-lg">
       <p>
         Subtotal ({basket.length} items)
         <strong>£{getBasketTotal(basket)}</strong>

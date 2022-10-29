@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 20px;
   background-color: #f3f3f3;
   border: 1px solid #d1d1d1;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .subtotal__gift {
@@ -26,4 +26,15 @@
   border-color: #54acd7 #2a7aa2 #185e81;
   color: #fff;
   padding: 8px 12px;
+}
+
+@media (min-width: 640px) {
+  .subtotal > button {
+    width: 50%;
+  }
+}
+
+@media (min-width: 769px) {
+}
+@media (min-width: 1024px) {
 }
