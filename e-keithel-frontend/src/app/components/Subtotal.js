@@ -30,7 +30,7 @@ const Subtotal = () => {
         This order contains a gift
       </small>
       <button onClick={handlePayment} type="button">
-        Proceed in Checkout
+        Proceed to Checkout
       </button>
     </div>
   );
