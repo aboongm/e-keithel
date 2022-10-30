@@ -22,6 +22,8 @@ const Header = () => {
     if (user.user) {
       dispatch(logOut());
       navigate('/login');
+    } else if (!user.user) {
+      navigate('/login');
     }
   };
 
@@ -112,7 +114,7 @@ const Header = () => {
             </div>
           </Link>
           <div className="header__option hide__item">
-            <Avatar alt="Remy Sharp" src={aboong} />
+            <Avatar alt="Remy Sharp" src={user.user ? aboong : ''} />
           </div>
         </div>
       </div>
@@ -186,7 +188,7 @@ const Header = () => {
         className={`${show ? 'block' : 'hidden'} menu__modal mt-4 mx-auto`}
       >
         <div className="">
-          <Avatar alt="Remy Sharp" src={aboong} />
+          <Avatar alt="Remy Sharp" src={user.user ? aboong : ''} />
           <p className="menu__modal__heading">
             Hello, {user.isLoggedIn ? `${user.user.email}!` : 'Guest!'}
           </p>
@@ -197,12 +199,15 @@ const Header = () => {
 
         <div className="flex flex-col gap-4 mt-10 pt-10 w-80 mx-auto ">
           {user.isLoggedIn ? (
-            <button className="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-indigo-700 bg-indigo-600 bg-opacity-0 hover:opacity-100 duration-100 border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
+            <button
+              onClick={handleAuthentication}
+              className="rounded-md flex space-x-2 w-full h-12 font-normal text-base leading-3 text-cyan-900 bg-cyan-900 bg-opacity-0 hover:opacity-100 duration-100 border border-cyan-900 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center"
+            >
               Sign Out
             </button>
           ) : (
             <Link to="/login">
-              <button className="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">
+              <button className="rounded-md flex space-x-2 w-full h-12 font-normal text-base leading-3 text-white bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-700 focus:bg-cyan-800 hover:bg-cyan-900 duration-150 justify-center items-center">
                 Login/Signup
               </button>
             </Link>
