@@ -20,10 +20,10 @@
 }
 
 .previous-btn {
-  position: absolute;
+  position: relative;
   /* top: 1660px; */
-  /* bottom: -820px; */
-  left: 22px;
+  top: 25px;
+  right: 565%;
   background-color: #2b83b2;
   padding: 15px 20px 15px 20px;
   font-size: 20px;
@@ -33,9 +33,9 @@
 }
 
 .next-btn {
-  position: absolute;
-  /* bottom: -820px; */
-  right: 22px;
+  position: relative;
+  bottom: 30px;
+  right: 0;
   background-color: #2b83b2;
   padding: 15px 20px 15px 20px;
   font-size: 20px;
@@ -46,4 +46,30 @@
 
 .page-btns {
   display: none;
+}
+
+@media (min-width: 640px) {
+  .previous-btn {
+    top: 12px;
+    right: 1200%;
+  }
+
+  .next-btn {
+    bottom: 18px;
+    right: 0%;
+  }
+}
+
+@media (min-width: 769px) {
+  .previous-btn {
+    top: 12px;
+    right: 0%;
+  }
+
+  .next-btn {
+    bottom: 18px;
+    right: 0%;
+  }
+}
+@media (min-width: 1024px) {
 }

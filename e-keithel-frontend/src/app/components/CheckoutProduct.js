@@ -12,26 +12,28 @@ const CheckoutProduct = ({ id, title, price, image, rating }) => {
   };
 
   const content = (
-    <div className="checkoutProduct">
+    <li className="checkoutProduct shadow-lg">
       <img className="checkoutProduct__image" src={image} alt="" />
       <div className="checkoutProduct__info">
         <p className="checkoutProduct__title">{title}</p>
         <p className="checkoutProduct__price">
-          <small>$</small>
-          <strong>{price}</strong>
+          <p>
+            <small>$</small>
+            <strong>{price}</strong>
+          </p>
+          <span className="checkoutProduct__rating">
+            {Array(rating)
+              .fill()
+              .map((_) => (
+                <p key={_}>&#11088;</p>
+              ))}
+          </span>
         </p>
-        <div className="checkoutProduct__rating">
-          {Array(rating)
-            .fill()
-            .map((_) => (
-              <p key={_}>&#11088;</p>
-            ))}
-        </div>
-        <button type="button" onClick={removeFromBasket}>
-          Remove from Basket
-        </button>
       </div>
-    </div>
+      <button type="button" onClick={removeFromBasket}>
+        Remove from Basket
+      </button>
+    </li>
   );
   return content;
 };

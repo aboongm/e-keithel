@@ -6,14 +6,6 @@
   background: linear-gradient(95deg, black, gray);
 }
 
-.footer__container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 100%;
-  border-bottom: 1px solid #d5d1d1;
-  padding-bottom: 12px;
-}
-
 .footer__left,
 .footer__center,
 .footer__right {
@@ -60,6 +52,21 @@
   width: 300px;
 }
 
-.footer__right {
-  border-left: 1px solid #d5d1d1;
+@media (min-width: 640px) {
+  .footer__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    border-bottom: 1px solid #d5d1d1;
+    padding-bottom: 12px;
+  }
+}
+
+@media (min-width: 769px) {
+  .footer__right {
+    border-left: 1px solid #d5d1d1;
+  }
+}
+
+@media (min-width: 1024px) {
 }

@@ -30,10 +30,11 @@ const Footer = () => {
         <div className="footer__right">
           <p className="footer__title">Contact Us</p>
           <p className="footer__link">
-            WhatsApp us : <span className="footer__contact">89740 003780</span>
+            WhatsApp us :{' '}
+            <span className="footer__contact">+91 89740 003780</span>
           </p>
           <p className="footer__link">
-            Call Us : <span className="footer__contact">1800 111 1111</span>
+            Call Us : <span className="footer__contact">+91 89740 003780</span>
           </p>
           <p className="footer__complaint">
             Should you encounter any bugs, glitches, lack of functionality,

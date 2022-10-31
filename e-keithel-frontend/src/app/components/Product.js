@@ -17,26 +17,28 @@ const Product = ({ id, title, image, price, rating }) => {
   };
 
   const content = (
-    <div className="product">
+    <li className="product shadow-lg">
+      <img src={image} alt="" />
       <div className="product__info">
         <p>{title}</p>
-        <p className="product__price">
-          <small>$</small>
-          <strong>{price}</strong>
-        </p>
-        <div className="product__rating">
-          {Array(rating)
-            .fill(1)
-            .map((item, index) => (
-              <p key={index}>&#11088; </p>
-            ))}
+        <div className="product__price">
+          <p>
+            <small>$</small>
+            <strong>{price}</strong>
+          </p>
+          <span className="product__rating">
+            {Array(rating)
+              .fill(1)
+              .map((item, index) => (
+                <p key={index}>&#11088; </p>
+              ))}
+          </span>
         </div>
       </div>
-      <img src={image} alt="" />
       <button onClick={addToBasket} type="button">
         Add to Basket
       </button>
-    </div>
+    </li>
   );
   return content;
 };

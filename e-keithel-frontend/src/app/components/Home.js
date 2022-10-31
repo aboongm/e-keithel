@@ -7,10 +7,11 @@ import { Link } from 'react-router-dom';
 
 const Home = () => (
   <div className="home">
-    <div className="home__container">
-      <img className="home__image" src={banner2} alt="" />
-
-      <div className="home__row">
+    <div className="">
+      <Link to="/products">
+        <img className="home__image" src={banner2} alt="" />
+      </Link>
+      <ul className="home__row">
         <Link to="/products">
           <Category
             title="Electronics"
@@ -49,8 +50,8 @@ const Home = () => (
           title="Beauty Care"
           image="https://m.media-amazon.com/images/I/41ZBJlrrbEL._AC_UF226,226_FMjpg_.jpg"
         />
-      </div>
-      <Popular />
+      </ul>
+      {/* <Popular /> */}
     </div>
   </div>
 );
