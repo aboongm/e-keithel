@@ -6,6 +6,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :role, presence: true
+  validates :fullname, presence: true
+  validates :mobileNo, presence: true, uniqueness: true, length: { minimum: 10, maximum: 10 }
+  validates :address, presence: true
+
+
   ROLES = %w{admin buyer seller shipper}
   ROLES.each do |role_name|
     define_method "#{role_name}?" do
