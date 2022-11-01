@@ -18,6 +18,8 @@ const Header = () => {
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
 
+  console.log("user: ", user);
+
   const handleAuthentication = () => {
     if (user.user) {
       dispatch(logOut());
@@ -93,8 +95,8 @@ const Header = () => {
               className="header__option hide__item"
               onClick={handleAuthentication}
             >
-              <span className="header__optionLineOne">
-                Hello {user.isLoggedIn ? user.user.email : 'Guest!'}
+              <span className="header__optionLineOne"> 
+                Hello {user.isLoggedIn ? user.user.fullname : 'Guest!'}
               </span>
               <span className="header__optionLineTwo">
                 {user.isLoggedIn ? 'Sign Out' : 'Sign In!'}
