@@ -192,7 +192,7 @@ const Header = () => {
         <div className="">
           <Avatar alt="Remy Sharp" src={user.user ? aboong : ''} />
           <p className="menu__modal__heading">
-            Hello, {user.isLoggedIn ? `${user.user.email}!` : 'Guest!'}
+            Hello, {user.isLoggedIn ? `${user.user.fullname}!` : 'Guest!'}
           </p>
         </div>
         <p className="menu__modal__item">Your Profile</p>
