@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_113914) do
     t.string "jti", null: false
     t.string "role", default: "buyer"
     t.string "fullname"
-    t.decimal "mobileNo"
+    t.string "mobileNo"
     t.text "address"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["jti"], name: "index_users_on_jti", unique: true

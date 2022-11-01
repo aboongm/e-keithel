@@ -9,8 +9,8 @@
 User.delete_all
 Product.delete_all
 
-User.create!(email: "aboongm@yahoo.com", password: "@aB123456", role: "admin")
-User.create!(email: "test@test.com", password: "@aB123456")
+User.create!(fullname: 'aboong may', email: "aboongm@yahoo.com", password: "@aB123456", role: "admin", mobileNo: "1234567890", address: '1234 aboong street')
+User.create!(fullname: "john doe", email: "test@test.com", password: "@aB123456", role: "buyer", mobileNo: "1334567890", address: '1234 aboong street')
 
 Product.create!(
     title:"The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback",
