@@ -9,8 +9,8 @@
 User.delete_all
 Product.delete_all
 
-User.create!(fullname: 'aboong may', email: "aboongm@yahoo.com", password: "@aB123456", role: "admin", mobileNo: "1234567890", address: '1234 aboong street')
-User.create!(fullname: "john doe", email: "test@test.com", password: "@aB123456", role: "buyer", mobileNo: "1334567890", address: '1234 aboong street')
+User.create!(fullname: 'Mayengbam Ranjit Luwang', email: "aboongm@yahoo.com", password: "@aB123456", role: "admin", mobileNo: "9383216094", address: 'House No 197, Singjamei Mayengbam Leikai, Imphal, Manipur, 795001', avatar: "https://avatars.githubusercontent.com/u/49184579?s=96&v=4")
+User.create!(fullname: 'Oybek Kayumov', email: "oybek_k@yahoo.com", password: "@aB123456", role: "admin", mobileNo: "1234567890", address: 'Taskent district, Parkent, Taskent, Uzbekistan', avatar: "https://avatars.githubusercontent.com/u/85465559?v=4")
 
 Product.create!(
     title:"The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback",

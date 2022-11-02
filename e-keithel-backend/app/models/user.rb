@@ -6,12 +6,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
+  validates :fullname, presence: true
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
   validates :role, presence: true
-  validates :fullname, presence: true
-  validates :mobileNo, presence: true, uniqueness: true, length: { minimum: 10, maximum: 10 }
-  validates :address, presence: true
+  validates :mobileNo, uniqueness: true, length: { minimum: 10, maximum: 10 }
+  validates :address, length: { maximum: 500 }
 
 
   ROLES = %w{admin buyer seller shipper}
