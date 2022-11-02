@@ -8,6 +8,10 @@ import { useGetCategoriesQuery } from '../api/categorySlice';
 
 const Home = () => {
   const { data, isLoading, isSuccess, error } = useGetCategoriesQuery();
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   console.log(data);
 
   const content = (
