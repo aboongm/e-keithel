@@ -18,6 +18,8 @@ const Header = () => {
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
 
+  console.log("user: ", user);
+
   const handleAuthentication = () => {
     if (user.user) {
       dispatch(logOut());
@@ -93,8 +95,8 @@ const Header = () => {
               className="header__option hide__item"
               onClick={handleAuthentication}
             >
-              <span className="header__optionLineOne">
-                Hello {user.isLoggedIn ? user.user.email : 'Guest!'}
+              <span className="header__optionLineOne"> 
+                Hello {user.isLoggedIn ? user.user.fullname : 'Guest!'}
               </span>
               <span className="header__optionLineTwo">
                 {user.isLoggedIn ? 'Sign Out' : 'Sign In!'}
@@ -114,7 +116,7 @@ const Header = () => {
             </div>
           </Link>
           <div className="header__option hide__item">
-            <Avatar alt="Remy Sharp" src={user.user ? aboong : ''} />
+            <Avatar alt="Remy Sharp" src={user.user ? user.user.avatar : ''} />
           </div>
         </div>
       </div>
@@ -188,9 +190,9 @@ const Header = () => {
         className={`${show ? 'block' : 'hidden'} menu__modal mt-4 mx-auto`}
       >
         <div className="">
-          <Avatar alt="Remy Sharp" src={user.user ? aboong : ''} />
+          <Avatar alt="Remy Sharp" src={user.user ? user.user.avatar : ''} />
           <p className="menu__modal__heading">
-            Hello, {user.isLoggedIn ? `${user.user.email}!` : 'Guest!'}
+            Hello, {user.isLoggedIn ? `${user.user.fullname}!` : 'Guest!'}
           </p>
         </div>
         <p className="menu__modal__item">Your Profile</p>

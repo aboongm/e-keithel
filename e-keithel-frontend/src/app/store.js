@@ -17,6 +17,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import basketSlice from './api/basketSlice';
+import { categorySlice } from './api/categorySlice';
 const persistConfig = {
   key: 'root',
   storage,
@@ -26,6 +27,7 @@ export const rootReducers = combineReducers({
   auth: authReducer,
   [authApi.reducerPath]: authApi.reducer,
   [productListSlice.reducerPath]: productListSlice.reducer,
+  [categorySlice.reducerPath]: categorySlice.reducer,
   basket: basketReducer,
   search: searchReducer,
   // [basketSlice.reducerPath]: basketSlice.reducer
