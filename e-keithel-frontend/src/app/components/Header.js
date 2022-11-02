@@ -116,7 +116,7 @@ const Header = () => {
             </div>
           </Link>
           <div className="header__option hide__item">
-            <Avatar alt="Remy Sharp" src={user.user ? aboong : ''} />
+            <Avatar alt="Remy Sharp" src={user.user ? user.user.avatar : ''} />
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@ const Header = () => {
         className={`${show ? 'block' : 'hidden'} menu__modal mt-4 mx-auto`}
       >
         <div className="">
-          <Avatar alt="Remy Sharp" src={user.user ? aboong : ''} />
+          <Avatar alt="Remy Sharp" src={user.user ? user.user.avatar : ''} />
           <p className="menu__modal__heading">
             Hello, {user.isLoggedIn ? `${user.user.fullname}!` : 'Guest!'}
           </p>

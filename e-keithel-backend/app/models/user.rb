@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
   validates :role, presence: true
-  validates :mobileNo, uniqueness: true, length: { minimum: 10, maximum: 10 }
+  validates :mobileNo, presence: true, uniqueness: true, length: { minimum: 10, maximum: 30 }
   validates :address, length: { maximum: 500 }
 
 
