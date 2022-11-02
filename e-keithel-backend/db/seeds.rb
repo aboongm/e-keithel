@@ -8,6 +8,7 @@
 
 User.delete_all
 Product.delete_all
+Category.delete_all
 
 User.create!(fullname: 'Mayengbam Ranjit Luwang', email: "aboongm@yahoo.com", password: "@aB123456", role: "admin", mobileNo: "9383216094", address: 'House No 197, Singjamei Mayengbam Leikai, Imphal, Manipur, 795001', avatar: "https://avatars.githubusercontent.com/u/49184579?s=96&v=4")
 User.create!(fullname: 'Oybek Kayumov', email: "oybek_k@yahoo.com", password: "@aB123456", role: "admin", mobileNo: "1234567890", address: 'Taskent district, Parkent, Taskent, Uzbekistan', avatar: "https://avatars.githubusercontent.com/u/85465559?v=4")
@@ -48,3 +49,56 @@ Product.create!(
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg" )
 
+Category.create!(
+    title: "Electronics",
+    image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_TV_2X._SY304_CB432517900_.jpg",
+    code_number: 1
+)
+
+Category.create!(
+    title: "Computer & Accessories",
+    image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
+    code_number: 2
+)
+
+Category.create!(
+    title: "Health & Personal Care",
+    image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2022/February/DashboardCards/GW_CONS_AUS_HPC_HPCEssentials_CatCard_Desktop1x._SY304_CB627424361_.jpg",
+    code_number: 3
+)
+
+Category.create!(
+    title: "Fashions",
+    image: "https://m.media-amazon.com/images/I/618E1D4hM6L._MCnd_AC_UL320_.jpg",
+    code_number: 4
+)
+
+Category.create!(
+    title: "Software",
+    image: "https://m.media-amazon.com/images/I/71lBKSgG0rL._AC_UL320_.jpg",
+    code_number: 5
+)
+
+Category.create!(
+    title: "Top Deals",
+    image: "https://m.media-amazon.com/images/I/51HyTjFJy5L._AC_UF226,226_FMjpg_.jpg",
+    code_number: 6
+)
+
+Category.create!(
+    title: "Games",
+    image: "https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg",
+    code_number: 7
+)
+
+Category.create!(
+    title: "Home & Kitchen",
+    image: "https://m.media-amazon.com/images/I/61YyfJSvxHL._AC_UF226,226_FMjpg_.jpg",
+    code_number: 8
+)
+
+Category.create!(
+    title: "Beauty Care",
+    image: "https://m.media-amazon.com/images/I/41ZBJlrrbEL._AC_UF226,226_FMjpg_.jpg",
+    code_number: 9
+)
