@@ -16,7 +16,7 @@ const CheckoutProduct = ({ id, title, price, image, rating }) => {
       <img className="checkoutProduct__image" src={image} alt="" />
       <div className="checkoutProduct__info">
         <p className="checkoutProduct__title">{title}</p>
-        <p className="checkoutProduct__price">
+        <div className="checkoutProduct__price">
           <p>
             <small>$</small>
             <strong>{price}</strong>
@@ -24,11 +24,11 @@ const CheckoutProduct = ({ id, title, price, image, rating }) => {
           <span className="checkoutProduct__rating">
             {Array(rating)
               .fill()
-              .map((_) => (
-                <p key={_}>&#11088;</p>
+              .map((item, i) => (
+                <span key={i}>&#11088;</span>
               ))}
           </span>
-        </p>
+        </div>
       </div>
       <button type="button" onClick={removeFromBasket}>
         Remove from Basket
