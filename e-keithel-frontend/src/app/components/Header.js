@@ -5,7 +5,6 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import { Link, useNavigate } from 'react-router-dom';
 import { Avatar } from '@mui/material';
 import monaaz from '../../assets/images/monaaz_darkblue.png';
-import aboong from '../../assets/images/1.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { logOut } from '../api/authSlice';
 import { useGetProductsQuery } from '../api/productListSlice';
@@ -17,8 +16,6 @@ const Header = () => {
 
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
-
-  // console.log("user: ", user);
 
   const handleAuthentication = () => {
     if (user.user) {
@@ -47,9 +44,8 @@ const Header = () => {
 
   const handleSelect = (e) => {
     e.preventDefault();
-
-    console.log('category select: ', e.target.value);
-  }
+    navigate(`/products/${e.target.value}`);
+  };
 
   const [show, setshow] = useState(false);
   const content = (
@@ -64,12 +60,12 @@ const Header = () => {
             <option>All</option>
 
             {/* <option>Arts & Crafts</option> */}
-            <option>Personal Care</option>
+            <option value={2}>Personal Care</option>
             {/* <option>Books</option>
             <option>Children's Fashion</option> */}
             <option>Computers</option>
             {/* <option>Digital Music</option> */}
-            <option>Electronics</option>
+            <option value={1}>Electronics</option>
             <option>Home & Kitchen</option>
             <option>Men's Fashion</option>
             {/* <option>Movie & TV</option> */}
@@ -103,7 +99,7 @@ const Header = () => {
               className="header__option hide__item"
               onClick={handleAuthentication}
             >
-              <span className="header__optionLineOne"> 
+              <span className="header__optionLineOne">
                 Hello {user.isLoggedIn ? user.user.fullname : 'Guest!'}
               </span>
               <span className="header__optionLineTwo">
