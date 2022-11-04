@@ -18,7 +18,7 @@ const Header = () => {
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
 
-  console.log("user: ", user);
+  // console.log("user: ", user);
 
   const handleAuthentication = () => {
     if (user.user) {
@@ -45,6 +45,12 @@ const Header = () => {
     }
   }, [search]);
 
+  const handleSelect = (e) => {
+    e.preventDefault();
+
+    console.log('category select: ', e.target.value);
+  }
+
   const [show, setshow] = useState(false);
   const content = (
     <nav className="2xl:container 2xl:mx-auto w-full bg-white">
@@ -53,8 +59,10 @@ const Header = () => {
           <img className="header__logo" src={monaaz} alt="mazoon" />
         </Link>
         <form className="header__search">
-          <select className="header__select classic">
+          <select onChange={handleSelect} className="header__select classic">
+            {/* <option onClick={handleSelect}>All</option> */}
             <option>All</option>
+
             {/* <option>Arts & Crafts</option> */}
             <option>Personal Care</option>
             {/* <option>Books</option>
