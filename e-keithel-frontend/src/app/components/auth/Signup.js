@@ -8,13 +8,14 @@ import { setCredentials } from '../../api/authSlice';
 import { toast } from 'react-toastify';
 
 const Signup = () => {
-  const nameRef = useRef();
+  const fullnameRef = useRef();
   const emailRef = useRef();
   const errRef = useRef();
 
-  const [name, setName] = useState('');
+  const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [mobileNo, setMobileNo] = useState('');
   const [errMsg, setErrMsg] = useState('');
 
   const dispatch = useDispatch();
@@ -24,19 +25,19 @@ const Signup = () => {
   console.log('signup: ', registerData, isSuccessRegister);
 
   useEffect(() => {
-    nameRef.current.focus();
+    fullnameRef.current.focus();
     emailRef.current.focus();
   }, []);
 
   useEffect(() => {
     setErrMsg('');
-  }, [name, email, password]);
+  }, [fullname, email, password, mobileNo]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (email && password) {
-      await registerUser({ user: { name, email, password } });
+    if (fullname && email && password && mobileNo) {
+      await registerUser({ user: { fullname, email, password, mobileNo } });
     }
   };
 
@@ -54,9 +55,10 @@ const Signup = () => {
     }
   }, [isSuccessRegister]);
 
-  const handleNameInput = (e) => setName(e.target.value);
+  const handleNameInput = (e) => setFullname(e.target.value);
   const handleEmailInput = (e) => setEmail(e.target.value);
   const handlePasswordInput = (e) => setPassword(e.target.value);
+  const handleMobileNoInput = (e) => setMobileNo(e.target.value);
 
   const errClass = errMsg ? 'errmsg' : 'offscreen';
 
@@ -91,11 +93,11 @@ const Signup = () => {
               Name
             </label>
             <input
-              aria-label="enter your name"
+              aria-label="enter your fullname"
               type="name"
               id="name"
-              ref={nameRef}
-              value={name}
+              ref={fullnameRef}
+              value={fullname}
               onChange={handleNameInput}
               className="bg-gray-200 border rounded focus:outline-none text-base font-medium leading-none login__text py-3 w-full pl-3 mt-2"
               required
@@ -144,7 +146,22 @@ const Signup = () => {
                   />
                 </svg> */}
               </div>
-            </div>
+            </div>            
+          </div>
+          <div className="mt-4">
+            <label className="text-sm font-medium leading-none login__text">
+              Mobile Number
+            </label>
+            <input
+              aria-label="enter mobile number"
+              type="number"
+              id="number"
+              // ref={emailRef}
+              value={mobileNo}
+              onChange={handleMobileNoInput}
+              className="bg-gray-200 border rounded focus:outline-none text-base font-medium leading-none login__text py-3 w-full pl-3 mt-2"
+              required
+            />
           </div>
           <div className="mt-8">
             <button
