@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 const Signup = () => {
   const fullnameRef = useRef();
   const emailRef = useRef();
-  const errRef = useRef();
+  // const errRef = useRef();
 
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
@@ -146,7 +146,7 @@ const Signup = () => {
                   />
                 </svg> */}
               </div>
-            </div>            
+            </div>
           </div>
           <div className="mt-4">
             <label className="text-sm font-medium leading-none login__text">
