@@ -8,6 +8,12 @@ import Checkout from './app/components/Checkout';
 import Payment from './app/components/Payment';
 import Search from './app/components/Search';
 import ProductListSelected from './app/components/ProductListSelected';
+import RequireAuth from './app/layouts/RequireAuth';
+
+const ROLES = {
+  buyer: 'buyer',
+  admin: 'admin',
+};
 
 function App() {
   return (
@@ -19,12 +25,11 @@ function App() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/products/:categoryId" element={<ProductListSelected />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/payment" element={<Payment />} />
         <Route path="/search" element={<Search />} />
 
-        {/* <Route
-          element={<RequireAuth allowedRoles={[ROLES.Manager, ROLES.Admin]} />}
-        ></Route> */}
+        <Route element={<RequireAuth />}>
+          <Route path="/payment" element={<Payment />} />
+        </Route>
       </Route>
     </Routes>
   );

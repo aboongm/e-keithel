@@ -30,8 +30,8 @@ const Payment = () => {
               <h3>Delivery Address</h3>
             </div>
             <div className="payment__address">
-              <p>{user?.user.fullname}</p>
-              <p>{user?.user.address}</p>
+              <p className="text-center">{user?.user.fullname}</p>
+              <p className="text-center">{user?.user.address}</p>
             </div>
           </div>
           <div className="payment__section payment__order__3">
