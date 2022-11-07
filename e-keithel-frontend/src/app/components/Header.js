@@ -58,25 +58,16 @@ const Header = () => {
           <select onChange={handleSelect} className="header__select classic">
             {/* <option onClick={handleSelect}>All</option> */}
             <option>All</option>
-
-            {/* <option>Arts & Crafts</option> */}
-            <option value={2}>Personal Care</option>
-            {/* <option>Books</option>
-            <option>Children's Fashion</option> */}
-            <option>Computers</option>
-            {/* <option>Digital Music</option> */}
+            
             <option value={1}>Electronics</option>
-            <option>Home & Kitchen</option>
-            <option>Men's Fashion</option>
-            {/* <option>Movie & TV</option> */}
-            {/* <option>Pet Supplies</option> */}
-            {/* <option>Sports & Outdoors</option> */}
-            <option>Software</option>
-            <option>Home Improvements</option>
-            <option>Toys & Games</option>
-            <option>Video Games</option>
-            <option>Women's Fashion</option>
-            <option>Miscellaneous</option>
+            <option value={2}>Computers</option>
+            <option value={3}>Personal Care</option>
+            <option value={4}>Fashions</option>
+            <option value={5}>Software</option>
+            <option value={6}>Toys & Games</option>
+            <option value={7}>Home & Kitchen</option>
+            <option value={8}>Beauty and Care</option>
+            <option value={9}>Miscellaneous</option>
           </select>
           <div className="input">
             <input

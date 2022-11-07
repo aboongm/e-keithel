@@ -65,7 +65,7 @@ Product.create!(
     image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
     categoryId: 2
  )
-
+        
 Category.create!(
     title: "Electronics",
     image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_TV_2X._SY304_CB432517900_.jpg",
@@ -97,26 +97,25 @@ Category.create!(
 )
 
 Category.create!(
-    title: "Miscellaneous",
-    image: "https://m.media-amazon.com/images/I/51HyTjFJy5L._AC_UF226,226_FMjpg_.jpg",
-    code_number: 6
-)
-
-Category.create!(
-    title: "Games",
+    title: "Toys & Games",
     image: "https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg",
-    code_number: 7
+    code_number:6
 )
 
 Category.create!(
     title: "Home & Kitchen",
     image: "https://m.media-amazon.com/images/I/61YyfJSvxHL._AC_UF226,226_FMjpg_.jpg",
-    code_number: 8
+    code_number: 7
 )
 
 Category.create!(
     title: "Beauty Care",
     image: "https://m.media-amazon.com/images/I/41ZBJlrrbEL._AC_UF226,226_FMjpg_.jpg",
-    code_number: 9
+    code_number: 8
 )
 
+Category.create!(
+    title: "Miscellaneous",
+    image: "https://m.media-amazon.com/images/I/51HyTjFJy5L._AC_UF226,226_FMjpg_.jpg",
+    code_number: 9
+)
