@@ -5,26 +5,26 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGetOrdersQuery } from '../../api/orderSlice';
 import { useGetProductsQuery } from '../../api/productListSlice';
+import CheckoutProduct from '../CheckoutProduct';
 
 const Order = () => {
   const user = useSelector((state) => state.auth);
-  const { data: orderList, isLoading: isLoadingOrder, error } = useGetOrdersQuery();
-  
+  const {
+    data: orderList,
+    isLoading: isLoadingOrder,
+    error,
+  } = useGetOrdersQuery();
+
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
 
-  // if (isLoadingProduct || isLoadingOrder) {
-    const filterOrderList = orderList.map((order) => {
-      console.log(order);
-      // productList.filter(product => (
-      //   order.product_id === product.id
-      //   ))
-      })
-    // console.log(filterOrderList);
-  // }  
-  
+  if (isLoadingProduct || isLoadingOrder) {
+    <h5>Loading...</h5>;
+  }
+  const filterOrderList = productList.filter(({ productId }) =>
+    orderList.map(({ product_id }) => product_id).includes(productId)
+  );
 
-    
   const content = (
     <section className="payment">
       <div className="payment__container">
@@ -40,7 +40,7 @@ const Order = () => {
               <h3>Ordered items and delivery details</h3>
             </div>
             <div className="payment__items">
-              {/* {basket.map((item) => (
+              {filterOrderList.map((item) => (
                 <CheckoutProduct
                   key={item.id}
                   id={item.id}
@@ -48,8 +48,9 @@ const Order = () => {
                   image={item.image}
                   price={item.price}
                   rating={item.rating}
+                  orderPage={true}
                 />
-              ))} */}
+              ))}
             </div>
           </div>
           <div className="payment__section payment__order__2">

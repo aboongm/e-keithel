@@ -26,6 +26,7 @@ const Checkout = () => {
               image={item.image}
               price={item.price}
               rating={item.rating}
+              orderPage={false}
             />
           ))}
         </ul>
