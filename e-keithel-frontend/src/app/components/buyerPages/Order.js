@@ -1,18 +1,19 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useGetOrderQuery } from '../../api/orderSlice';
+
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useGetOrdersQuery } from '../../api/orderSlice';
 
 const Order = () => {
   const user = useSelector((state) => state.auth);
-  const [getOrder] = useGetOrderQuery();
+  const { data, isSuccess, error } = useGetOrdersQuery();
 
-  console.log('getOrder', getOrder);
+  console.log(data);
 
   const content = (
     <section className="payment">
-      <div className="payment__container">        
+      <div className="payment__container">
         <div className="payment__container__inner">
           <div className="payment__section payment__order__1">
             <div className="payment__address">
@@ -38,14 +39,13 @@ const Order = () => {
             </div>
           </div>
           <div className="payment__section payment__order__2">
-            <div className="payment__details">
-            </div>
+            <div className="payment__details"></div>
           </div>
         </div>
       </div>
     </section>
   );
   return content;
-}
+};
 
-export default Order
+export default Order;

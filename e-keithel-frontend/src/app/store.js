@@ -7,7 +7,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import basketReducer from './api/basketSlice';
 import searchReducer from './api/searchSlice';
-import {orderSlice} from './api/orderSlice';
+import { orderSlice } from './api/orderSlice';
 import {
   persistReducer,
   FLUSH,

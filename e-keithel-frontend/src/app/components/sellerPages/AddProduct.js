@@ -23,7 +23,7 @@ const AddProduct = () => {
   const handleImageInput = (e) => setImage(e.target.value);
   const handleSelect = (e) => setCategoryId(e.target.value);
 
-  const [addProduct, isSuccess, error] = useAddProductMutation();
+  const [addProduct, { isSuccess, error }] = useAddProductMutation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,8 +33,8 @@ const AddProduct = () => {
       if (title && price && categoryId && image) {
         addProduct({ title, price, categoryId, image, sellerId });
         if (isSuccess) {
-          toast.success("Product added successfully")
-          navigate('/products')
+          toast.success('Product added successfully');
+          navigate('/products');
         }
       } else {
         toast.error('Provide all information, please');
