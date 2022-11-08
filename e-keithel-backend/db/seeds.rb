@@ -24,7 +24,8 @@ Product.create!(
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg",
     categoryId: 6,
-    sellerId: 3 
+    sellerId: 3,
+    productId: 1 
 )
 
 Product.create!(
@@ -33,7 +34,8 @@ Product.create!(
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg",
     categoryId: 8,
-    sellerId: 3 
+    sellerId: 3,
+    productId: 2 
  )
 
 Product.create!(
@@ -42,7 +44,8 @@ Product.create!(
     rating: 3,
     image: "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",
     categoryId: 2,
-    sellerId: 3  
+    sellerId: 3,
+    productId: 3  
  )
 
 Product.create!(
@@ -51,7 +54,8 @@ Product.create!(
     rating: 5,
     image: "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
     categoryId: 2,
-    sellerId: 3  
+    sellerId: 3,
+    productId: 4
  )
 
 Product.create!(
@@ -60,7 +64,8 @@ Product.create!(
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg",
     categoryId: 2,
-    sellerId: 3 
+    sellerId: 3,
+    productId: 5 
  )
 
 Product.create!(
@@ -69,7 +74,8 @@ Product.create!(
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
     categoryId: 2,
-    sellerId: 3 
+    sellerId: 3,
+    productId: 6 
  )
         
 Category.create!(

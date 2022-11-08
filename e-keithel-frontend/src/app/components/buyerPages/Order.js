@@ -4,13 +4,27 @@ import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useGetOrdersQuery } from '../../api/orderSlice';
+import { useGetProductsQuery } from '../../api/productListSlice';
 
 const Order = () => {
   const user = useSelector((state) => state.auth);
-  const { data, isSuccess, error } = useGetOrdersQuery();
+  const { data: orderList, isLoading: isLoadingOrder, error } = useGetOrdersQuery();
+  
+  const { data: productList, isLoading: isLoadingProduct } =
+    useGetProductsQuery();
 
-  console.log(data);
+  // if (isLoadingProduct || isLoadingOrder) {
+    const filterOrderList = orderList.map((order) => {
+      console.log(order);
+      // productList.filter(product => (
+      //   order.product_id === product.id
+      //   ))
+      })
+    // console.log(filterOrderList);
+  // }  
+  
 
+    
   const content = (
     <section className="payment">
       <div className="payment__container">

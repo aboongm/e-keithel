@@ -32,7 +32,7 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route path="/payment" element={<Payment />} />
           <Route path="/addProduct" element={<AddProduct />} />
-          <Route path="/order" element={<Order />} />
+          <Route path="/orders" element={<Order />} />
         </Route>
       </Route>
     </Routes>
