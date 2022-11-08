@@ -23,7 +23,8 @@ Product.create!(
     price: 11.62,
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg",
-    categoryId: 6 
+    categoryId: 6,
+    sellerId: 3 
 )
 
 Product.create!(
@@ -31,7 +32,8 @@ Product.create!(
     price: 239.0,
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg",
-    categoryId: 8 
+    categoryId: 8,
+    sellerId: 3 
  )
 
 Product.create!(
@@ -39,7 +41,8 @@ Product.create!(
     price: 199.99,
     rating: 3,
     image: "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",
-    categoryId: 2 
+    categoryId: 2,
+    sellerId: 3  
  )
 
 Product.create!(
@@ -47,7 +50,8 @@ Product.create!(
     price: 98.99,
     rating: 5,
     image: "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-    categoryId: 2 
+    categoryId: 2,
+    sellerId: 3  
  )
 
 Product.create!(
@@ -55,7 +59,8 @@ Product.create!(
     price: 598.99,
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg",
-    categoryId: 2 
+    categoryId: 2,
+    sellerId: 3 
  )
 
 Product.create!(
@@ -63,7 +68,8 @@ Product.create!(
     price: 1094.98,
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
-    categoryId: 2
+    categoryId: 2,
+    sellerId: 3 
  )
         
 Category.create!(
@@ -118,4 +124,20 @@ Category.create!(
     title: "Miscellaneous",
     image: "https://m.media-amazon.com/images/I/51HyTjFJy5L._AC_UF226,226_FMjpg_.jpg",
     code_number: 9
+)
+
+Order.create!(
+    product_id: 1,
+    price: 11.62,
+    quantity: 3, 
+    buyer_id: 4, 
+    seller_id: 3
+)
+
+Order.create!(
+    product_id: 2,
+    price: 11.62,
+    quantity: 3, 
+    buyer_id: 4, 
+    seller_id: 3
 )

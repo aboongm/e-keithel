@@ -7,6 +7,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import basketReducer from './api/basketSlice';
 import searchReducer from './api/searchSlice';
+import {orderSlice} from './api/orderSlice';
 import {
   persistReducer,
   FLUSH,
@@ -28,6 +29,7 @@ export const rootReducers = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [productListSlice.reducerPath]: productListSlice.reducer,
   [categorySlice.reducerPath]: categorySlice.reducer,
+  [orderSlice.reducerPath]: orderSlice.reducer,
   basket: basketReducer,
   search: searchReducer,
   // [basketSlice.reducerPath]: basketSlice.reducer

@@ -10,6 +10,7 @@ import Search from './app/components/Search';
 import ProductListSelected from './app/components/ProductListSelected';
 import RequireAuth from './app/layouts/RequireAuth';
 import AddProduct from './app/components/sellerPages/AddProduct';
+import Order from './app/components/buyerPages/Order';
 
 const ROLES = {
   buyer: 'buyer',
@@ -31,6 +32,7 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route path="/payment" element={<Payment />} />
           <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/order" element={<Order />} />
         </Route>
       </Route>
     </Routes>

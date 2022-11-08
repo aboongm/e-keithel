@@ -16,7 +16,15 @@ const Payment = () => {
     // setError(e.error ? e.error.message : '');
   };
 
-  const handleSubmit = async (e) => {};
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // if ()
+    console.log('total price:', getBasketTotal(basket));
+    navigate('/order')
+  };
 
   const content = (
     <section className="payment">

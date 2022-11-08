@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAddProductMutation } from '../../api/addProductApiSlice';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +11,8 @@ const AddProduct = () => {
   const [image, setImage] = useState('');
   const [categoryId, setCategoryId] = useState(1);
   const titleRef = useRef();
+
+  const navigate = useNavigate();
 
   const user = useSelector((state) => state.auth);
   const sellerId = user.user.id;
@@ -29,6 +32,10 @@ const AddProduct = () => {
       console.log(title, price, categoryId, image, sellerId);
       if (title && price && categoryId && image) {
         addProduct({ title, price, categoryId, image, sellerId });
+        if (isSuccess) {
+          toast.success("Product added successfully")
+          navigate('/products')
+        }
       } else {
         toast.error('Provide all information, please');
       }
