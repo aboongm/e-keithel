@@ -3,28 +3,48 @@ import '../../assets/styles/Payment.css';
 import { Link, useNavigate } from 'react-router-dom';
 // import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CheckoutProduct from './CheckoutProduct';
-// import axios from 'axios';
+import { useAddOrdersMutation } from '../api/orderSlice';
 
 import { useSelector } from 'react-redux';
 import { getBasketTotal } from '../api/helpers';
+import { add } from 'lodash';
 
 const Payment = () => {
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
+
+  const [addOrders, { isSuccess, error }] = useAddOrdersMutation();
+
+  console.log('userId: ', user?.user.id);
+
   const handleChange = (e) => {
     // setDisabled(e.empty);
     // setError(e.error ? e.error.message : '');
   };
+  console.log(basket);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    addOrders(basket);
+    console.log('order added');
 
-    // if ()
-    console.log('total price:', getBasketTotal(basket));
-    navigate('/order')
+    // if (basket.length >= 1) {
+    //   basket.map((order) =>
+    //     addOrders({
+    //       product_id: order.id,
+    //       price: order.price,
+    //       quantity: 1,
+    //       buyer_id: user.user.id,
+    //       seller_id: order.sellerId,
+    //     })
+    //   );
+    // }
+    navigate('/orders');
   };
+
+  useEffect(() => {}, []);
 
   const content = (
     <section className="payment">

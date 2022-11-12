@@ -21,8 +21,8 @@ const Order = () => {
   if (isLoadingProduct || isLoadingOrder) {
     <h5>Loading...</h5>;
   }
-  const filterOrderList = productList.filter(({ productId }) =>
-    orderList.map(({ product_id }) => product_id).includes(productId)
+  const filterOrderList = productList.filter(({ id }) =>
+    orderList.map(({ product_id }) => product_id).includes(id)
   );
 
   const content = (
