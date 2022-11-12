@@ -16,9 +16,7 @@ class OrdersController < ApplicationController
 
   # POST /orders
   def create
-    # @order = Order.new(order_params)
-    @order = Order.new(amount: :amount, buyer_id: :buyer_id, 
-      purchase: params[:purchase])
+    @order = Order.new(order_params)   
 
     if @order.save
       render json: @order, status: :created, location: @order
@@ -49,6 +47,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:amount, :buyer_id, :purchase)
+      # params.require(:order).permit(:amount, :buyer_id, :purchase)
+      params.require(:order).permit(:amount, :buyer_id, :purchase => [:title, :price, :rating, :image, :category_id, :seller_id, :product_id])
     end
 end

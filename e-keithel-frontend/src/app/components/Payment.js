@@ -12,6 +12,7 @@ import { add } from 'lodash';
 const Payment = () => {
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
+  console.log('basket:', basket);
 
   const [addOrders, { isSuccess, error }] = useAddOrdersMutation();
 
@@ -27,7 +28,32 @@ const Payment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    addOrders(basket);
+    addOrders({
+      amount: 399.98,
+      buyer_id: 4,
+      purchase: [
+        {
+          title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+          price: 199.99,
+          rating: 3,
+          image:
+            'https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg',
+          category_id: 2,
+          seller_id: 3,
+          product_id: 3,
+        },
+        {
+          title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+          price: 199.99,
+          rating: 3,
+          image:
+            'https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg',
+          category_id: 2,
+          seller_id: 3,
+          product_id: 3,
+        },
+      ],
+    });
     console.log('order added');
 
     // if (basket.length >= 1) {
