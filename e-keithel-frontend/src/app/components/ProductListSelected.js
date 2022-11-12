@@ -8,14 +8,16 @@ const ProductList = () => {
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
 
-  const { categoryId: Id } = useParams();
+  const { category_id: Id } = useParams();
   const filteredProducts = productList.filter(
-    (product) => product.categoryId === parseInt(Id)
+    (product) => product.category_id === parseInt(Id)
   );
 
   if (isLoadingProduct) {
     return <h4>Loading...</h4>;
   }
+
+  console.log();
 
   return (
     <div className="productList">

@@ -18,13 +18,18 @@ const Order = () => {
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
 
+  
   if (isLoadingProduct || isLoadingOrder) {
     <h5>Loading...</h5>;
   }
-  const filterOrderList = productList.filter(({ id }) =>
-    orderList.map(({ product_id }) => product_id).includes(id)
-  );
+  // const filterOrderList = productList.filter(({ id }) =>
+  //   orderList.map(({ product_id }) => product_id).includes(id)
+  // );
 
+  console.log(orderList);
+
+  // const 
+  
   const content = (
     <section className="payment">
       <div className="payment__container">
@@ -40,16 +45,22 @@ const Order = () => {
               <h3>Ordered items and delivery details</h3>
             </div>
             <div className="payment__items">
-              {filterOrderList.map((item) => (
-                <CheckoutProduct
-                  key={item.id}
-                  id={item.id}
-                  title={item.title}
-                  image={item.image}
-                  price={item.price}
-                  rating={item.rating}
-                  orderPage={true}
-                />
+              {orderList.map((item) => (
+                <>
+                  <h4>Order Amount: {item.amount}</h4>
+                   {item.purchase.map((product) => (
+                    <CheckoutProduct
+                      key={product.id}
+                      id={product.id}
+                      title={product.title}
+                      image={product.image}
+                      price={product.price}
+                      rating={product.rating}
+                      orderPage={true}
+                    />
+                  ))}
+                </>
+                
               ))}
             </div>
           </div>
