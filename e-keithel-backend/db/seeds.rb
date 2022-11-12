@@ -23,9 +23,9 @@ Product.create!(
     price: 11.62,
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg",
-    categoryId: 6,
-    sellerId: 3,
-    productId: 1 
+    category_id: 6,
+    seller_id: 3,
+    product_id: 1 
 )
 
 Product.create!(
@@ -33,9 +33,9 @@ Product.create!(
     price: 239.0,
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg",
-    categoryId: 8,
-    sellerId: 3,
-    productId: 2 
+    category_id: 8,
+    seller_id: 3,
+    product_id: 2 
  )
 
 Product.create!(
@@ -43,9 +43,9 @@ Product.create!(
     price: 199.99,
     rating: 3,
     image: "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",
-    categoryId: 2,
-    sellerId: 3,
-    productId: 3  
+    category_id: 2,
+    seller_id: 3,
+    product_id: 3  
  )
 
 Product.create!(
@@ -53,9 +53,9 @@ Product.create!(
     price: 98.99,
     rating: 5,
     image: "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-    categoryId: 2,
-    sellerId: 3,
-    productId: 4
+    category_id: 2,
+    seller_id: 3,
+    product_id: 4
  )
 
 Product.create!(
@@ -63,9 +63,9 @@ Product.create!(
     price: 598.99,
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg",
-    categoryId: 2,
-    sellerId: 3,
-    productId: 5 
+    category_id: 2,
+    seller_id: 3,
+    product_id: 5 
  )
 
 Product.create!(
@@ -73,9 +73,9 @@ Product.create!(
     price: 1094.98,
     rating: 4,
     image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
-    categoryId: 2,
-    sellerId: 3,
-    productId: 6 
+    category_id: 2,
+    seller_id: 3,
+    product_id: 6 
  )
         
 Category.create!(
@@ -132,18 +132,55 @@ Category.create!(
     code_number: 9
 )
 
-Order.create!(
-    product_id: 1,
-    price: 11.62,
-    quantity: 3, 
-    buyer_id: 4, 
-    seller_id: 3
+Order.create!(    
+    amount: 2189.96, 
+    buyer_id: 4,
+    purchase: [{
+        
+        title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440",
+        price: 1094.98,
+        rating: 4,
+        image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
+        category_id: 2,
+        seller_id: 3,
+        product_id: 6 
+      },
+      {
+            
+        title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440",
+        price: 1094.98,
+        rating: 4,
+        image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
+        category_id: 2,
+        seller_id: 3,
+        product_id: 6 
+      }
+    ]
 )
 
-Order.create!(
-    product_id: 2,
-    price: 11.62,
-    quantity: 3, 
-    buyer_id: 4, 
-    seller_id: 3
+Order.create!(    
+    amount: 399.98, 
+    buyer_id: 4,
+    purchase: [
+        {
+            title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+            price: 199.99,
+            rating: 3,
+            image: "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",
+            category_id: 2,
+            seller_id: 3,
+            product_id: 3  
+
+        },
+        {
+            title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+            price: 199.99,
+            rating: 3,
+            image: "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",
+            category_id: 2,
+            seller_id: 3,
+            product_id: 3  
+
+        }
+    ]        
 )
