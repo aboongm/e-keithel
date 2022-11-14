@@ -17,7 +17,7 @@ const ProductList = () => {
     return <h4>Loading...</h4>;
   }
 
-  console.log();
+  console.log(productList);
 
   return (
     <div className="productList">

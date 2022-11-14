@@ -9,13 +9,13 @@ const AddProduct = () => {
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState('');
-  const [categoryId, setCategoryId] = useState(1);
+  const [category_id, setCategoryId] = useState(1);
   const titleRef = useRef();
 
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.auth);
-  const sellerId = user.user.id;
+  const seller_id = user.user.id;
   console.log('user: ', typeof user.user.id);
 
   const handleTitleInput = (e) => setTitle(e.target.value);
@@ -29,9 +29,9 @@ const AddProduct = () => {
     e.preventDefault();
 
     if (user.user.role === 'seller') {
-      console.log(title, price, categoryId, image, sellerId);
-      if (title && price && categoryId && image) {
-        addProduct({ title, price, categoryId, image, sellerId });
+      // console.log(title, price, category_id, image, seller_id);
+      if (title && price && category_id && image) {
+        addProduct({ title, price, category_id, image, seller_id });
         if (isSuccess) {
           toast.success('Product added successfully');
           navigate('/products');

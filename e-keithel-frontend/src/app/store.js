@@ -22,14 +22,14 @@ import { categorySlice } from './api/categorySlice';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['productListSlice'],
+  blacklist: ['productListSlice', 'orderSlice', 'categorySlice'],
 };
 export const rootReducers = combineReducers({
   auth: authReducer,
   [authApi.reducerPath]: authApi.reducer,
   [productListSlice.reducerPath]: productListSlice.reducer,
   [categorySlice.reducerPath]: categorySlice.reducer,
-  [orderSlice.reducerPath]: orderSlice.reducer,
+  // [orderSlice.reducerPath]: orderSlice.reducer,
   basket: basketReducer,
   search: searchReducer,
   // [basketSlice.reducerPath]: basketSlice.reducer
