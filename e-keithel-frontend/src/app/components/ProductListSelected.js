@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 const ProductList = () => {
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
+  console.log(productList);
 
   const { category_id: Id } = useParams();
   const filteredProducts = productList.filter(
@@ -17,8 +18,6 @@ const ProductList = () => {
     return <h4>Loading...</h4>;
   }
 
-  console.log(productList);
-
   return (
     <div className="productList">
       <div className="productList__container">
@@ -26,8 +25,7 @@ const ProductList = () => {
           <h1>Products</h1>
         </div>
 
-        <ul className="productList__row">
-          {/* {productList.map((product, index) => { */}
+        {/* <ul className="productList__row">
           {filteredProducts.map((product, index) => {
             return (
               <Product
@@ -40,7 +38,7 @@ const ProductList = () => {
               />
             );
           })}
-        </ul>
+        </ul> */}
       </div>
     </div>
   );

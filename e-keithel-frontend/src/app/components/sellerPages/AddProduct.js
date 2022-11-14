@@ -16,7 +16,6 @@ const AddProduct = () => {
 
   const user = useSelector((state) => state.auth);
   const seller_id = user.user.id;
-  console.log('user: ', typeof user.user.id);
 
   const handleTitleInput = (e) => setTitle(e.target.value);
   const handlePriceInput = (e) => setPrice(e.target.value);
@@ -27,6 +26,7 @@ const AddProduct = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(isSuccess, error);
 
     if (user.user.role === 'seller') {
       // console.log(title, price, category_id, image, seller_id);

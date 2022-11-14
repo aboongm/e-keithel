@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
-  serialize :purchase, Array
+  # serialize :purchase, Array
+  serialize :purchase, JSON
 
   # belongs_to :product
   # belongs_to :buyer, class_name: 'User'

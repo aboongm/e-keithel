@@ -22,7 +22,7 @@ import { categorySlice } from './api/categorySlice';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['productListSlice', 'orderSlice', 'categorySlice'],
+  blacklist: ['productListSlice'],
 };
 export const rootReducers = combineReducers({
   auth: authReducer,

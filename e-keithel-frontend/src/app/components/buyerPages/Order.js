@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { toast } from 'react-toastify';
@@ -18,7 +19,6 @@ const Order = () => {
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
 
-  
   if (isLoadingProduct || isLoadingOrder) {
     <h5>Loading...</h5>;
   }
@@ -28,8 +28,10 @@ const Order = () => {
 
   console.log(orderList);
 
-  // const 
-  
+  useEffect(() => {}, []);
+
+  // const
+
   const content = (
     <section className="payment">
       <div className="payment__container">
@@ -44,11 +46,11 @@ const Order = () => {
             <div className="payment__title">
               <h3>Ordered items and delivery details</h3>
             </div>
-            <div className="payment__items">
+            {/* <div className="payment__items">
               {orderList.map((item) => (
                 <>
-                  <h4>Order Amount: {item.amount}</h4>
-                   {item.purchase.map((product) => (
+                  <h4 key={item.id}>Order Amount: {item.amount}</h4>
+                  {item.purchase.map((product) => (
                     <CheckoutProduct
                       key={product.id}
                       id={product.id}
@@ -60,9 +62,8 @@ const Order = () => {
                     />
                   ))}
                 </>
-                
               ))}
-            </div>
+            </div> */}
           </div>
           <div className="payment__section payment__order__2">
             <div className="payment__details"></div>

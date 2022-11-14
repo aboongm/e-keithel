@@ -18,119 +18,113 @@ User.create!(fullname: 'Clementine Bauch', email: "Nathan@yesenia.net", password
 
 User.create!(fullname: 'Kurtis Weissnat', email: "Telly.Hoeger@billy.biz", password: "@aB123456", role: "buyer", mobileNo: "8527567890", address: 'ex Trail, Suite 280, Howemouth', avatar: "https://media.istockphoto.com/id/500214897/photo/close-up-portrait-of-man.jpg?s=612x612&w=is&k=20&c=P1Xj5l7XEOt5EHtzx7VLulqFELtLhcN3BwaO3Ke7dOY=")
 
-# Product.create!(
-#     title:"The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback",
-#     price: 11.62,
-#     rating: 4,
-#     image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg",
-#     category_id: 6,
-#     seller_id: 3,
-#     product_id: 1 
-# )
-
-# Product.create!(
-#     title:"Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl",
-#     price: 239.0,
-#     rating: 4,
-#     image: "https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg",
-#     category_id: 8,
-#     seller_id: 3,
-#     product_id: 2 
-#  )
-
-# Product.create!(
-#     title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
-#     price: 199.99,
-#     rating: 3,
-#     image: "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",
-#     category_id: 2,
-#     seller_id: 3,
-#     product_id: 3  
-#  )
-
-# Product.create!(
-#     title:"Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
-#     price: 98.99,
-#     rating: 5,
-#     image: "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-#     category_id: 2,
-#     seller_id: 3,
-#     product_id: 4
-#  )
-
-# Product.create!(
-#     title:"New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)",
-#     price: 598.99,
-#     rating: 4,
-#     image: "https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg",
-#     category_id: 2,
-#     seller_id: 3,
-#     product_id: 5 
-#  )
-
-# Product.create!(
-#     title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440",
-#     price: 1094.98,
-#     rating: 4,
-#     image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
-#     category_id: 2,
-#     seller_id: 3,
-#     product_id: 6 
-#  )
-        
 Category.create!(
-    title: "Electronics",
-    image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_TV_2X._SY304_CB432517900_.jpg",
-    code_number: 1
+title: "Electronics",
+image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_TV_2X._SY304_CB432517900_.jpg",
+code_number: 1
 )
 
 Category.create!(
-    title: "Computer & Accessories",
-    image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
-    code_number: 2
+title: "Computer & Accessories",
+image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Dashboard/Fuji_Dash_PC_1x._SY304_CB431800965_.jpg",
+code_number: 2
 )
 
 Category.create!(
-    title: "Health & Personal Care",
-    image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2022/February/DashboardCards/GW_CONS_AUS_HPC_HPCEssentials_CatCard_Desktop1x._SY304_CB627424361_.jpg",
-    code_number: 3
+title: "Health & Personal Care",
+image: "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2022/February/DashboardCards/GW_CONS_AUS_HPC_HPCEssentials_CatCard_Desktop1x._SY304_CB627424361_.jpg",
+code_number: 3
 )
 
 Category.create!(
-    title: "Fashions",
-    image: "https://m.media-amazon.com/images/I/618E1D4hM6L._MCnd_AC_UL320_.jpg",
-    code_number: 4
+title: "Fashions",
+image: "https://m.media-amazon.com/images/I/618E1D4hM6L._MCnd_AC_UL320_.jpg",
+code_number: 4
 )
 
 Category.create!(
-    title: "Software",
-    image: "https://m.media-amazon.com/images/I/71lBKSgG0rL._AC_UL320_.jpg",
-    code_number: 5
+title: "Software",
+image: "https://m.media-amazon.com/images/I/71lBKSgG0rL._AC_UL320_.jpg",
+code_number: 5
 )
 
 Category.create!(
-    title: "Toys & Games",
-    image: "https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg",
-    code_number:6
+title: "Toys & Games",
+image: "https://m.media-amazon.com/images/I/71fa5+U25cL._AC_UL320_.jpg",
+code_number:6
 )
 
 Category.create!(
-    title: "Home & Kitchen",
-    image: "https://m.media-amazon.com/images/I/61YyfJSvxHL._AC_UF226,226_FMjpg_.jpg",
-    code_number: 7
+title: "Home & Kitchen",
+image: "https://m.media-amazon.com/images/I/61YyfJSvxHL._AC_UF226,226_FMjpg_.jpg",
+code_number: 7
 )
 
 Category.create!(
-    title: "Beauty Care",
-    image: "https://m.media-amazon.com/images/I/41ZBJlrrbEL._AC_UF226,226_FMjpg_.jpg",
-    code_number: 8
+title: "Beauty Care",
+image: "https://m.media-amazon.com/images/I/41ZBJlrrbEL._AC_UF226,226_FMjpg_.jpg",
+code_number: 8
 )
 
 Category.create!(
-    title: "Miscellaneous",
-    image: "https://m.media-amazon.com/images/I/51HyTjFJy5L._AC_UF226,226_FMjpg_.jpg",
-    code_number: 9
+title: "Miscellaneous",
+image: "https://m.media-amazon.com/images/I/51HyTjFJy5L._AC_UF226,226_FMjpg_.jpg",
+code_number: 9
 )
+
+Product.create!(
+    title:"The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback",
+    price: 11.62,
+    rating: 4,
+    image: "https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg",
+    category_id: 6,
+    seller_id: 3 
+)
+
+Product.create!(
+    title:"Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl",
+    price: 239.0,
+    rating: 4,
+    image: "https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg",
+    category_id: 8,
+    seller_id: 3 
+ )
+
+Product.create!(
+    title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+    price: 199.99,
+    rating: 3,
+    image: "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg",
+    category_id: 2,
+    seller_id: 3 
+ )
+
+Product.create!(
+    title:"Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
+    price: 98.99,
+    rating: 5,
+    image: "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
+    category_id: 2,
+    seller_id: 3
+ )
+
+Product.create!(
+    title:"New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)",
+    price: 598.99,
+    rating: 4,
+    image: "https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg",
+    category_id: 2,
+    seller_id: 3
+ )
+
+Product.create!(
+    title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440",
+    price: 1094.98,
+    rating: 4,
+    image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
+    category_id: 2,
+    seller_id: 3
+ )
 
 # Order.create!(    
 #     amount: 2189.96, 

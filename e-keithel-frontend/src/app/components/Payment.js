@@ -28,20 +28,14 @@ const Payment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    addOrders({buyer_id: 4, amount: 100, purchase: [{}, {}] });
+
+    addOrders({
+      buyer_id: user.user.id,
+      amount: getBasketTotal(basket),
+      purchase: basket,
+    });
     console.log('order added');
 
-    // if (basket.length >= 1) {
-    //   basket.map((order) =>
-    //     addOrders({
-    //       product_id: order.id,
-    //       price: order.price,
-    //       quantity: 1,
-    //       buyer_id: user.user.id,
-    //       seller_id: order.sellerId,
-    //     })
-    //   );
-    // }
     navigate('/orders');
   };
 

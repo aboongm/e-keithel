@@ -1,4 +1,4 @@
-class AddCategoryIdToProducts < ActiveRecord::Migration[7.0]
+class AddReferencesToProducts < ActiveRecord::Migration[7.0]
   def change
     # add_column :products, :category_id, :integer
     add_reference :products, :seller, foreign_key: { to_table: :users}

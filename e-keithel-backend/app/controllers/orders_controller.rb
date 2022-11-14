@@ -16,7 +16,18 @@ class OrdersController < ApplicationController
 
   # POST /orders
   def create
-    @order = Order.new(order_params)   
+    # @order = Order.new(order_params)   
+    # @order = Order.new(buyer_id: params[:buyer_id], amount: params[:amount], purchase: [ {
+            
+    #     title:"Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440",
+    #     price: 1094.98,
+    #     rating: 4,
+    #     image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
+    #     category_id: 2,
+    #     seller_id: 3,
+    #     product_id: 6 
+    #   }])
+    @order = Order.new(buyer_id: params[:buyer_id], amount: params[:amount], purchase: params[:purchase])
 
     if @order.save
       render json: @order, status: :created, location: @order
