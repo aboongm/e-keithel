@@ -14,20 +14,26 @@ const Order = () => {
     data: orderList,
     isLoading: isLoadingOrder,
     error,
-  } = useGetOrdersQuery(user.user.id);
+  } = useGetOrdersQuery();
 
-  const { data: productList, isLoading: isLoadingProduct } =
-    useGetProductsQuery();
+  // const { data: productList, isLoading: isLoadingProduct } =
+  //   useGetProductsQuery();
 
-  if (isLoadingProduct || isLoadingOrder) {
+  // if (isLoadingProduct && isLoadingOrder) {
+  if (isLoadingOrder) {
     <h5>Loading...</h5>;
   }
 
+  // console.log(orderList);
+
+  const filterOrderList = orderList.filter((order) => {
+    return order.buyer_id === user.user.id;
+  });
   // const filterOrderList = productList.filter(({ id }) =>
   //   orderList.map(({ product_id }) => product_id).includes(id)
   // );
 
-  console.log(orderList);
+  console.log(filterOrderList);
 
   useEffect(() => {}, []);
 
@@ -47,7 +53,7 @@ const Order = () => {
             <div className="payment__title">
               <h3>Ordered items and delivery details</h3>
             </div>
-            {/* <div className="payment__items">
+            <div className="payment__items">
               {orderList.map((item) => (
                 <>
                   <h4 key={item.id}>Order Amount: {item.amount}</h4>
@@ -64,7 +70,7 @@ const Order = () => {
                   ))}
                 </>
               ))}
-            </div> */}
+            </div>
           </div>
           <div className="payment__section payment__order__2">
             <div className="payment__details"></div>

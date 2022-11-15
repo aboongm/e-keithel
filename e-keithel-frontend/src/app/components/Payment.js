@@ -12,17 +12,14 @@ import { add } from 'lodash';
 const Payment = () => {
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
-  console.log('basket:', basket);
+  // console.log('basket:', basket);
 
   const [addOrders, { isSuccess, error }] = useAddOrdersMutation();
-
-  console.log('userId: ', user?.user.id);
 
   const handleChange = (e) => {
     // setDisabled(e.empty);
     // setError(e.error ? e.error.message : '');
   };
-  console.log(basket);
 
   const navigate = useNavigate();
 

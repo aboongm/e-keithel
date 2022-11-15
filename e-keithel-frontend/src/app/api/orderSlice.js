@@ -13,7 +13,7 @@ export const orderSlice = apiSlice.injectEndpoints({
       }),
     }),
     getOrders: builder.query({
-      query: (id) => `/orders/${id}`,
+      query: () => '/orders',
     }),
   }),
 });

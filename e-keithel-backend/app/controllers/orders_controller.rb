@@ -4,9 +4,9 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    # @orders = Order.all
+    @orders = Order.all
     # @orders = current_user.orders
-    @orders = Order.where(buyer_id: current_user.id)
+    # @orders = Order.where(buyer_id: current_user.id)
 
     render json: @orders
   end
@@ -27,10 +27,9 @@ class OrdersController < ApplicationController
     #     image: "https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg",
     #     category_id: 2,
     #     seller_id: 3,
-    #     product_id: 6 
+    #     id: 6 
     #   }])
-    # @order = Order.new(buyer_id: params[:buyer_id], amount: params[:amount], purchase: params[:purchase])
-    @order = Order.new(order_params)
+    @order = Order.new(buyer_id: params[:buyer_id], amount: params[:amount], purchase: params[:purchase])
 
     if @order.save
       render json: @order, status: :created, location: @order
@@ -62,6 +61,6 @@ class OrdersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def order_params
       # params.require(:order).permit(:amount, :buyer_id, :purchase)
-      params.require(:order).permit(:amount, :buyer_id, :purchase => [:title, :price, :rating, :image, :category_id, :seller_id, :product_id])
+      params.require(:order).permit(:id, :buyer_id, :amount, :purchase => [ :id, :title, :price, :rating, :image, :category_id, :seller_id])
     end
 end
