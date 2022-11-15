@@ -13,6 +13,7 @@ const Order = () => {
   const {
     data: orderList,
     isLoading: isLoadingOrder,
+    isSuccess: isSuccessOrder, 
     error,
   } = useGetOrdersQuery();
 
@@ -24,11 +25,14 @@ const Order = () => {
     <h5>Loading...</h5>;
   }
 
-  // console.log(orderList);
+  console.log(isSuccessOrder);
+  let filterOrderList;
+  if (isSuccessOrder) {
+    filterOrderList = orderList.filter((order) => {
+      return order.buyer_id === user.user.id;
+    });
+  }
 
-  const filterOrderList = orderList.filter((order) => {
-    return order.buyer_id === user.user.id;
-  });
   // const filterOrderList = productList.filter(({ id }) =>
   //   orderList.map(({ product_id }) => product_id).includes(id)
   // );
@@ -36,8 +40,6 @@ const Order = () => {
   console.log(filterOrderList);
 
   useEffect(() => {}, []);
-
-  // const
 
   const content = (
     <section className="payment">
