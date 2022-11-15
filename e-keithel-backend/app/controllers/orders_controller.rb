@@ -29,7 +29,8 @@ class OrdersController < ApplicationController
     #     seller_id: 3,
     #     product_id: 6 
     #   }])
-    @order = Order.new(buyer_id: params[:buyer_id], amount: params[:amount], purchase: params[:purchase])
+    # @order = Order.new(buyer_id: params[:buyer_id], amount: params[:amount], purchase: params[:purchase])
+    @order = Order.new(order_params)
 
     if @order.save
       render json: @order, status: :created, location: @order
