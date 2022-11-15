@@ -9,7 +9,7 @@ const AddProduct = () => {
   const [title, setTitle] = useState('');
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState('');
-  const [category_id, setCategoryId] = useState(1);
+  const [category_id, setCategoryId] = useState(0);
   const titleRef = useRef();
 
   const navigate = useNavigate();
@@ -22,16 +22,16 @@ const AddProduct = () => {
   const handleImageInput = (e) => setImage(e.target.value);
   const handleSelect = (e) => setCategoryId(e.target.value);
 
-  const [addProduct, { isSuccess, error }] = useAddProductMutation();
+  const [addProduct, { isSuccess, error, data }] = useAddProductMutation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(isSuccess, error);
 
     if (user.user.role === 'seller') {
-      // console.log(title, price, category_id, image, seller_id);
       if (title && price && category_id && image) {
         addProduct({ title, price, category_id, image, seller_id });
+        console.log(isSuccess, error);
         if (isSuccess) {
           toast.success('Product added successfully');
           navigate('/products');
@@ -44,9 +44,13 @@ const AddProduct = () => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log();
-  // }, [title, price, categoryId, image])
+  useEffect(() => {
+    if (isSuccess) {
+      // toast.success('Product added successfully');
+      navigate('/products');
+    }
+    console.log();
+  }, [data, isSuccess]);
 
   const content = (
     <section className="signup__container">
