@@ -30,7 +30,7 @@ export const rootReducers = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [productListSlice.reducerPath]: productListSlice.reducer,
   [categorySlice.reducerPath]: categorySlice.reducer,
-  // [orderSlice.reducerPath]: orderSlice.reducer,
+  [orderSlice.reducerPath]: orderSlice.reducer,
   basket: basketReducer,
   search: searchReducer,
   // [basketSlice.reducerPath]: basketSlice.reducer

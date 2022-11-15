@@ -14,7 +14,7 @@ const Order = () => {
     data: orderList,
     isLoading: isLoadingOrder,
     error,
-  } = useGetOrdersQuery();
+  } = useGetOrdersQuery(user.user.id);
 
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
@@ -22,6 +22,7 @@ const Order = () => {
   if (isLoadingProduct || isLoadingOrder) {
     <h5>Loading...</h5>;
   }
+
   // const filterOrderList = productList.filter(({ id }) =>
   //   orderList.map(({ product_id }) => product_id).includes(id)
   // );
