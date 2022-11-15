@@ -108,10 +108,12 @@ const Header = () => {
                 </span>
               </div>
             </Link>
-            <div className="header__option hide__item">
-              <span className="header__optionLineOne">Returns</span>
-              <span className="header__optionLineTwo">& Orders</span>
-            </div>
+            <Link to="/orders">
+              <div className="header__option hide__item">
+                <span className="header__optionLineOne">Returns</span>
+                <span className="header__optionLineTwo">& Orders</span>
+              </div>
+            </Link>
             <Link to="/checkout">
               <div className="header__optionBasket">
                 <ShoppingBasketIcon />
