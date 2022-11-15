@@ -22,7 +22,8 @@ import { categorySlice } from './api/categorySlice';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['productListSlice'],
+  // blacklist: ['productListSlice'],
+  whitelist: ['auth', 'basket', 'search'],
 };
 export const rootReducers = combineReducers({
   auth: authReducer,

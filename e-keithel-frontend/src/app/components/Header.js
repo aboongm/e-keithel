@@ -14,6 +14,9 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [search, setSearch] = useState('');
+  const [show, setshow] = useState(false);
+
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
 
@@ -26,28 +29,29 @@ const Header = () => {
     }
   };
 
-  const [search, setSearch] = useState('');
-
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
 
-  useEffect(() => {
-    const searchResults = productList.filter((product) =>
-      product.title.toLowerCase().includes(search.toLowerCase())
-    );
+  if (isLoadingProduct) {
+    <h5>Loading...</h5>;
+  }
 
-    if (search !== '') {
-      dispatch(getSearchResult(searchResults));
-      navigate('/search');
-    }
-  }, [search]);
+  // useEffect(() => {
+  //   const searchResults = productList.filter((product) =>
+  //     product.title.toLowerCase().includes(search.toLowerCase())
+  //   );
+
+  //   if (search !== '') {
+  //     dispatch(getSearchResult(searchResults));
+  //     navigate('/search');
+  //   }
+  // }, [search]);
 
   const handleSelect = (e) => {
     e.preventDefault();
     navigate(`/products/${e.target.value}`);
   };
 
-  const [show, setshow] = useState(false);
   const content = (
     <nav className="2xl:container 2xl:mx-auto w-full bg-white">
       <div className={`${show ? 'hide' : 'block'} header `}>
@@ -57,8 +61,8 @@ const Header = () => {
         <form className="header__search">
           <select onChange={handleSelect} className="header__select classic">
             {/* <option onClick={handleSelect}>All</option> */}
-            <option>All</option>
-            
+            <option value={0}>All</option>
+
             <option value={1}>Electronics</option>
             <option value={2}>Computers</option>
             <option value={3}>Personal Care</option>

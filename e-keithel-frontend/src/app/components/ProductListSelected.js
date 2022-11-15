@@ -5,18 +5,22 @@ import { useGetProductsQuery } from '../api/productListSlice';
 import { useParams } from 'react-router-dom';
 
 const ProductList = () => {
+  const { category_id: Id } = useParams();
   const { data: productList, isLoading: isLoadingProduct } =
     useGetProductsQuery();
-  console.log(productList);
-
-  const { category_id: Id } = useParams();
-  const filteredProducts = productList.filter(
-    (product) => product.category_id === parseInt(Id)
-  );
 
   if (isLoadingProduct) {
     return <h4>Loading...</h4>;
   }
+  console.log(productList);
+
+  const filteredProducts = productList.filter((product) => {
+    if (parseInt(Id) === 0) {
+      return product;
+    } else {
+      return product.category_id === parseInt(Id);
+    }
+  });
 
   return (
     <div className="productList">
@@ -25,7 +29,7 @@ const ProductList = () => {
           <h1>Products</h1>
         </div>
 
-        {/* <ul className="productList__row">
+        <ul className="productList__row">
           {filteredProducts.map((product, index) => {
             return (
               <Product
@@ -38,7 +42,7 @@ const ProductList = () => {
               />
             );
           })}
-        </ul> */}
+        </ul>
       </div>
     </div>
   );
