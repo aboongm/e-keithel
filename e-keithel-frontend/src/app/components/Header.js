@@ -57,6 +57,11 @@ const Header = () => {
     navigate(`/products/${e.target.value}`);
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    console.log('Clicked search');
+  };
+
   if (isSuccessProduct) {
     content = (
       <nav className="2xl:container 2xl:mx-auto w-full bg-white">
@@ -89,7 +94,7 @@ const Header = () => {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <button className="header__searchIcon">
+              <button className="header__searchIcon" onClick={handleSearch}>
                 <SearchIcon />
               </button>
             </div>
@@ -108,7 +113,7 @@ const Header = () => {
                 </span>
               </div>
             </Link>
-            <Link to="/orders">
+            <Link to={user.user ? '/orders' : '/login'}>
               <div className="header__option hide__item">
                 <span className="header__optionLineOne">Returns</span>
                 <span className="header__optionLineTwo">& Orders</span>
