@@ -26,5 +26,15 @@ module EKeithelBackend
     config.session_store :cookie_store, key: '_interslice_session'
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use config.session_store, config.session_options
+    
+    # config.active_record.yaml_column_permitted_classes = [
+    #   Symbol,
+    #   ActiveSupport::HashWithIndifferentAccess,
+    #   ActionController::Parameters
+    # ]
+    # config.active_record.yaml_column_permitted_classes = [Symbol, Hash, Array, ActiveSupport::HashWithIndifferentAccess, ActiveSupport::TimeWithZone, ActionController::Parameters]
+    # config.active_record.use_yaml_unsafe_load
+    # config.active_support.use_yaml_unsafe_load
+    # config.active_record.use_yaml_unsafe_load = true
   end
 end

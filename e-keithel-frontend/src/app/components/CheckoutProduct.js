@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { removingFromBasket } from '../api/basketSlice';
 import { toast } from 'react-toastify';
 
-const CheckoutProduct = ({ id, title, price, image, rating }) => {
+const CheckoutProduct = ({ id, title, price, image, rating, orderPage }) => {
   const dispatch = useDispatch();
   const removeFromBasket = () => {
     dispatch(removingFromBasket(id));
@@ -30,9 +30,11 @@ const CheckoutProduct = ({ id, title, price, image, rating }) => {
           </span>
         </div>
       </div>
-      <button type="button" onClick={removeFromBasket}>
-        Remove from Basket
-      </button>
+      {!orderPage && (
+        <button type="button" onClick={removeFromBasket}>
+          Remove from Basket
+        </button>
+      )}
     </li>
   );
   return content;

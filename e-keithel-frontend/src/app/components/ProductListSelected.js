@@ -2,22 +2,29 @@ import React from 'react';
 import Product from './Product';
 import '../../assets/styles/ProductList.css';
 import { useGetProductsQuery } from '../api/productListSlice';
-import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const ProductList = () => {
-  const { data: productList, isLoading, isSuccess } = useGetProductsQuery();
+  const { category_id: Id } = useParams();
+  const {
+    data: productList,
+    isLoading: isLoading,
+    isSuccess,
+  } = useGetProductsQuery();
 
   let content;
 
   if (isLoading) content = <h4>Loading...</h4>;
 
-  useEffect(() => {
-    if (isSuccess) {
-      console.log(productList);
-    }
-  }, [productList]);
-
   if (isSuccess) {
+    const filteredProducts = productList.filter((product) => {
+      if (parseInt(Id) === 0) {
+        return product;
+      } else {
+        return product.category_id === parseInt(Id);
+      }
+    });
+
     content = (
       <div className="productList">
         <div className="productList__container">
@@ -26,7 +33,7 @@ const ProductList = () => {
           </div>
 
           <ul className="productList__row">
-            {productList.map((product, index) => {
+            {filteredProducts.map((product, index) => {
               return (
                 <Product
                   key={index}

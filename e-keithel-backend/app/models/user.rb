@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   include Devise::JWT::RevocationStrategies::JTIMatcher
+  has_many :products, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  
+  # has_many :buyers, through: :orders, source: :buyer
+  # has_many :sellers, through: :orders, source: :seller
+    
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
