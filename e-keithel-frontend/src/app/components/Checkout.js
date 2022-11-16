@@ -1,6 +1,5 @@
 import React from 'react';
 import '../../assets/styles/Checkout.css';
-import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CheckoutProduct from './CheckoutProduct';
 import Subtotal from './Subtotal';
@@ -27,6 +26,7 @@ const Checkout = () => {
               image={item.image}
               price={item.price}
               rating={item.rating}
+              orderPage={false}
             />
           ))}
         </ul>

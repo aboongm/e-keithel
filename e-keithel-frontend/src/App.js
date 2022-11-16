@@ -7,6 +7,10 @@ import ProductList from './app/components/ProductList';
 import Checkout from './app/components/Checkout';
 import Payment from './app/components/Payment';
 import Search from './app/components/Search';
+import ProductListSelected from './app/components/ProductListSelected';
+import RequireAuth from './app/layouts/RequireAuth';
+import AddProduct from './app/components/sellerPages/AddProduct';
+import Order from './app/components/buyerPages/Order';
 
 function App() {
   return (
@@ -16,13 +20,18 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/products" element={<ProductList />} />
+        <Route
+          path="/products/:category_id"
+          element={<ProductListSelected />}
+        />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/payment" element={<Payment />} />
         <Route path="/search" element={<Search />} />
 
-        {/* <Route
-          element={<RequireAuth allowedRoles={[ROLES.Manager, ROLES.Admin]} />}
-        ></Route> */}
+        <Route element={<RequireAuth />}>
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/addProduct" element={<AddProduct />} />
+          <Route path="/orders" element={<Order />} />
+        </Route>
       </Route>
     </Routes>
   );

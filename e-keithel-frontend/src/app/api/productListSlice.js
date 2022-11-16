@@ -1,11 +1,11 @@
-import { apiSlice } from "./apiSlice";
+import { apiSlice } from './apiSlice';
 
 export const productListSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => "/products"
-    })
-  })
-})
+      query: () => '/products',
+    }),
+  }),
+});
 
-export const {useGetProductsQuery} = productListSlice;
+export const { useGetProductsQuery } = productListSlice;

@@ -12,7 +12,7 @@ import { setCredentials } from '../../api/authSlice';
 
 const Login = () => {
   const emailRef = useRef();
-  const errRef = useRef();
+  // const errRef = useRef();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
