@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: e_keithel_backend_production
   username: e_keithel_backend
   password: <%= ENV["E_KEITHEL_BACKEND_DATABASE_PASSWORD"] %>
