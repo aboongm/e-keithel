@@ -2,12 +2,11 @@ import React from 'react';
 import '../../assets/styles/Home.css';
 import banner2 from '../../assets/images/banner_2.jpg';
 import Category from './Category';
-// import Popular from './Popular';
 import { Link } from 'react-router-dom';
 import { useGetCategoriesQuery } from '../api/categorySlice';
 
 const Home = () => {
-  const { data, isLoading, isSuccess, error } = useGetCategoriesQuery();
+  const { data, isLoading } = useGetCategoriesQuery();
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -32,7 +31,6 @@ const Home = () => {
             </>
           ))}
         </ul>
-        {/* <Popular /> */}
       </div>
     </div>
   );

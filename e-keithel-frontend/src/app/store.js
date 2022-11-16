@@ -7,7 +7,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import basketReducer from './api/basketSlice';
 import searchReducer from './api/searchSlice';
-import { orderSlice } from './api/orderSlice';
+import { orderApiSlice } from './api/orderApiSlice';
 import {
   persistReducer,
   FLUSH,
@@ -17,12 +17,10 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import basketSlice from './api/basketSlice';
 import { categorySlice } from './api/categorySlice';
 const persistConfig = {
   key: 'root',
   storage,
-  // blacklist: ['productListSlice'],
   whitelist: ['auth', 'basket', 'search'],
 };
 export const rootReducers = combineReducers({
@@ -30,10 +28,9 @@ export const rootReducers = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [productListSlice.reducerPath]: productListSlice.reducer,
   [categorySlice.reducerPath]: categorySlice.reducer,
-  [orderSlice.reducerPath]: orderSlice.reducer,
+  [orderApiSlice.reducerPath]: orderApiSlice.reducer,
   basket: basketReducer,
   search: searchReducer,
-  // [basketSlice.reducerPath]: basketSlice.reducer
 });
 const persistedReducer = persistReducer(persistConfig, rootReducers);
 export const store = configureStore({

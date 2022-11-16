@@ -1,19 +1,17 @@
-import { isError } from 'lodash';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useGetOrdersQuery } from '../../api/orderSlice';
+import { useGetOrdersQuery } from '../../api/orderApiSlice';
 import CheckoutProduct from '../CheckoutProduct';
 
 const Order = () => {
   const user = useSelector((state) => state.auth);
+
   const {
     data: orderList,
     isLoading: isLoadingOrder,
     isSuccess: isSuccessOrder,
+    isError,
     error,
   } = useGetOrdersQuery();
 

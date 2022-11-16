@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../../assets/styles/Payment.css';
 import { Link, useNavigate } from 'react-router-dom';
-// import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CheckoutProduct from './CheckoutProduct';
-import { useAddOrdersMutation } from '../api/orderSlice';
+import { useAddOrdersMutation } from '../api/orderApiSlice';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getBasketTotal } from '../api/helpers';
-import { add } from 'lodash';
+import { emptyingBasket } from '../api/basketSlice';
 
 const Payment = () => {
   const user = useSelector((state) => state.auth);
   const basket = useSelector((state) => state.basket.basket);
-  // console.log('basket:', basket);
-
-  const [addOrders, { isSuccess, error }] = useAddOrdersMutation();
-
-  const handleChange = (e) => {
-    // setDisabled(e.empty);
-    // setError(e.error ? e.error.message : '');
-  };
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [addOrders] = useAddOrdersMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,12 +24,11 @@ const Payment = () => {
       amount: getBasketTotal(basket),
       purchase: basket,
     });
-    console.log('order added');
 
+    dispatch(emptyingBasket());
     navigate('/orders');
+    console.log('order added');
   };
-
-  useEffect(() => {}, []);
 
   const content = (
     <section className="payment">
@@ -77,8 +69,6 @@ const Payment = () => {
             </div>
             <div className="payment__details">
               <form onSubmit={handleSubmit}>
-                {/* <CardElement /> */}
-
                 <div className="payment__priceContainer">
                   <h3>Order Total: ${getBasketTotal(basket)}</h3>
                   <button type="submit">

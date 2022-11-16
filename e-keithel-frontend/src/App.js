@@ -12,11 +12,6 @@ import RequireAuth from './app/layouts/RequireAuth';
 import AddProduct from './app/components/sellerPages/AddProduct';
 import Order from './app/components/buyerPages/Order';
 
-const ROLES = {
-  buyer: 'buyer',
-  admin: 'admin',
-};
-
 function App() {
   return (
     <Routes>
@@ -25,7 +20,10 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/products" element={<ProductList />} />
-        <Route path="/products/:category_id" element={<ProductListSelected />} />
+        <Route
+          path="/products/:category_id"
+          element={<ProductListSelected />}
+        />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/search" element={<Search />} />
 
