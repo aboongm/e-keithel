@@ -39,7 +39,26 @@ const Header = () => {
 
   if (isLoadingProduct) content = <h5>Loading...</h5>;
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   if (isSuccessProduct) {
+  //     const searchResults = productList.filter((product) =>
+  //       product.title.toLowerCase().includes(search.toLowerCase())
+  //     );
+
+  //     if (search !== '') {
+  //       dispatch(getSearchResult(searchResults));
+  //       navigate('/search');
+  //     }
+  //   }
+  // }, [search]);
+
+  const handleSelect = (e) => {
+    e.preventDefault();
+    navigate(`/products/${e.target.value}`);
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
     if (isSuccessProduct) {
       const searchResults = productList.filter((product) =>
         product.title.toLowerCase().includes(search.toLowerCase())
@@ -50,16 +69,6 @@ const Header = () => {
         navigate('/search');
       }
     }
-  }, [search]);
-
-  const handleSelect = (e) => {
-    e.preventDefault();
-    navigate(`/products/${e.target.value}`);
-  };
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    console.log('Clicked search');
   };
 
   if (isSuccessProduct) {
@@ -84,7 +93,7 @@ const Header = () => {
               <option value={8}>Beauty and Care</option>
               <option value={9}>Miscellaneous</option>
             </select>
-            <div className="input">
+            <form className="input" onSubmit={handleSearch}>
               <input
                 className="header__searchInput"
                 id="search"
@@ -97,7 +106,7 @@ const Header = () => {
               <button className="header__searchIcon" onClick={handleSearch}>
                 <SearchIcon />
               </button>
-            </div>
+            </form>
           </form>
           <div className="header__nav">
             <Link to={!user.isLoggedIn && '/login'}>
