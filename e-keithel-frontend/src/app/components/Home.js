@@ -6,34 +6,36 @@ import { Link } from 'react-router-dom';
 import { useGetCategoriesQuery } from '../api/categorySlice';
 
 const Home = () => {
-  const { data, isLoading } = useGetCategoriesQuery();
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
+  const { data, isLoading, isSuccess } = useGetCategoriesQuery();
 
-  const content = (
-    <div className="home">
-      <div className="">
-        <Link to="/products">
-          <img className="home__image" src={banner2} alt="" />
-        </Link>
-        <ul className="home__row">
-          {data.map((category) => (
-            <>
-              <div className="category shadow-lg">
-                <Category
-                  key={category.id}
-                  codeNumber={category.code_number}
-                  title={category.title}
-                  image={category.image}
-                />
-              </div>
-            </>
-          ))}
-        </ul>
+  let content;
+  if (isLoading) content = <p>Loading...</p>;
+
+  if (isSuccess) {
+    content = (
+      <div className="home">
+        <div className="">
+          <Link to="/products">
+            <img className="home__image" src={banner2} alt="" />
+          </Link>
+          <ul className="home__row">
+            {data.map((category) => (
+              <>
+                <div className="category shadow-lg">
+                  <Category
+                    key={category.id}
+                    codeNumber={category.code_number}
+                    title={category.title}
+                    image={category.image}
+                  />
+                </div>
+              </>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
   return content;
 };
 
