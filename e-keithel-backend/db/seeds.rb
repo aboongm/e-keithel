@@ -16,6 +16,8 @@ User.create!(fullname: 'Oybek Kayumov', email: "oybek_k@yahoo.com", password: "@
 
 User.create!(fullname: 'Clementine Bauch', email: "Nathan@yesenia.net", password: "@aB123456", role: "seller", mobileNo: "1463123478", address: 'House No 197, Suite 847, McKenziehaven, Douglas Extension, 795001', avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80")
 
+User.create!(fullname: 'Chris May', email: "chris@yahoo.com", password: "@aB123456", role: "seller", mobileNo: "9383216090", address: 'House No 197, Suite 847, McKenziehaven, Douglas Extension, 795001', avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80")
+
 User.create!(fullname: 'Kurtis Weissnat', email: "Telly.Hoeger@billy.biz", password: "@aB123456", role: "buyer", mobileNo: "8527567890", address: 'ex Trail, Suite 280, Howemouth', avatar: "https://media.istockphoto.com/id/500214897/photo/close-up-portrait-of-man.jpg?s=612x612&w=is&k=20&c=P1Xj5l7XEOt5EHtzx7VLulqFELtLhcN3BwaO3Ke7dOY=")
 
 Category.create!(
