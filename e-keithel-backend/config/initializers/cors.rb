@@ -7,7 +7,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # origins 'http://localhost:3001', '127.0.0.1:3001'
-    origins 'https://monaaz-8zab.onrender.com/'
+    origin 'https://monaaz-8zab.onrender.com/'
     # origins 'https://monaaz.onrender.com/'
 
     resource "*",
