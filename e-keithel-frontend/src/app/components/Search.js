@@ -2,10 +2,7 @@ import Product from './Product';
 import { useSelector } from 'react-redux';
 
 const Search = () => {
-  const searchResults = useSelector(
-    (state) => state.search.search
-  );
-  console.log('search results 1: ', searchResults);
+  const searchResults = useSelector((state) => state.search.search);
 
   return (
     <div className="productList">
