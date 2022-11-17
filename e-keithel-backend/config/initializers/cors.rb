@@ -6,7 +6,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://monaaz-8zab.onrender.com/'
+    origins 'https://monaaz-8zab.onrender.com/', '127.0.0.1:3001'
 
     resource "*",
       headers: :any,
