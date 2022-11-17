@@ -82,7 +82,7 @@ Product.create!(
 )
 
 Product.create!(
-    title:"Amazon Fire TV 55" Omni Series 4K UHD smart TV, hands-free with Alexa",
+    title:"Amazon Fire TV 55inch Omni Series 4K UHD smart TV, hands-free with Alexa",
     price: 559.99,
     rating: 5,
     image: "https://m.media-amazon.com/images/I/616og3I0RLL._AC_SX522_.jpg",
@@ -151,7 +151,7 @@ Product.create!(
 )
 
 Product.create!(
-    title:"2022 Newest Lenovo Ideapad 3 Laptop, 15.6" HD Touchscreen, 11th Gen Intel Core i3-1115G4 Processor, 8GB DDR4 RAM, 256GB PCIe NVMe SSD, HDMI, Webcam, Wi-Fi 5, Bluetooth, Windows 11 Home, Almond",
+    title:"2022 Newest Lenovo Ideapad 3 Laptop, 15.6 inch HD Touchscreen, 11th Gen Intel Core i3-1115G4 Processor, 8GB DDR4 RAM, 256GB PCIe NVMe SSD, HDMI, Webcam, Wi-Fi 5, Bluetooth, Windows 11 Home, Almond",
     price: 959,
     rating: 5,
     image: "https://m.media-amazon.com/images/I/61QGMX0Qy6L._AC_SX425_.jpg",
@@ -160,7 +160,7 @@ Product.create!(
 )
 
 Product.create!(
-    title:"Newest HP All-in-One Desktop, 27" FHD Display, 12th Gen Intel Core i7-1255U, 32GB RAM, 2TB SSD, Webcam, HDMI, RJ-45, Wired Keyboard&Mouse, WiFi 6, Windows 11 Home, Black",
+    title:"Newest HP All-in-One Desktop, 27 inch FHD Display, 12th Gen Intel Core i7-1255U, 32GB RAM, 2TB SSD, Webcam, HDMI, RJ-45, Wired Keyboard&Mouse, WiFi 6, Windows 11 Home, Black",
     price: 1389,
     rating: 5,
     image: "https://m.media-amazon.com/images/I/71ElOPf09nL._AC_UY218_.jpg",
@@ -168,7 +168,7 @@ Product.create!(
     seller_id: 3 
 )
 Product.create!(
-    title:"2022 Newest Dell Inspiron 7700 All-in-One Desktop, 27" FHD Touchscreen, 11th Gen Intel i7-1165G7, GeForce MX330, 64GB RAM, 2TB SSD, IR Camera, WiFi 6, Wireless KB&Mouse, Win 11 Home",
+    title:"2022 Newest Dell Inspiron 7700 All-in-One Desktop, 27 inch FHD Touchscreen, 11th Gen Intel i7-1165G7, GeForce MX330, 64GB RAM, 2TB SSD, IR Camera, WiFi 6, Wireless KB&Mouse, Win 11 Home",
     price: 1789,
     rating: 4,
     image: "https://m.media-amazon.com/images/I/71Yqyi6Rx+L._AC_SX425_.jpg",
@@ -180,7 +180,7 @@ Product.create!(
     title:"TheraFace PRO - Handheld Facial Massage Device - Compact Electric Face and Skin Care Therapy Tool - 8-in-1 Treatment with Microcurrent and LED Light Therapy Rings for Ultimate Personal Beauty, White",
     price: 399,
     rating: 4,
-    image: "TheraFace PRO - Handheld Facial Massage Device - Compact Electric Face and Skin Care Therapy Tool - 8-in-1 Treatment with Microcurrent and LED Light Therapy Rings for Ultimate Personal Beauty, White",
+    image: "https://m.media-amazon.com/images/I/61PBybuLuBL._AC_UL320_.jpg",
     category_id: 3,
     seller_id: 3 
 )
@@ -208,7 +208,7 @@ Product.create!(
     title:"Kancystore Womens Crewneck Sweatshirts Color Block Long Sleeve Side Split Tunic Tops Shirts",
     price: 22.99,
     rating: 4,
-    image: "Kancystore Womens Crewneck Sweatshirts Color Block Long Sleeve Side Split Tunic Tops Shirts",
+    image: "https://m.media-amazon.com/images/I/81uXoTdh7uL._AC_UX425_.jpg",
     category_id: 4,
     seller_id: 3 
 )
@@ -362,7 +362,7 @@ Product.create!(
 
 
 Product.create!(
-    title:"TIMBER RIDGE 21.3" x 22" Banyon Zero Gravity Bungee Folding Patio Reclining Lounge Chair",
+    title:"TIMBER RIDGE 21.3 inch x 22 inch Banyon Zero Gravity Bungee Folding Patio Reclining Lounge Chair",
     price: 122.08,
     rating: 4,
     image: "https://m.media-amazon.com/images/I/71NsB+5NPGL._AC_SX569_.jpg",
@@ -383,7 +383,7 @@ Product.create!(
     title:"Sports Sunglasses, Tuecota Polarized Sunglasses, UV400 Protection Cycling Glasses, Sports Glasses goggles for Men Women, Fishing, Golf, Running, Hiking, Baseball Outdoor Sports Glasses",
     price: 12.99,
     rating: 4,
-    image: "Sports Sunglasses, Tuecota Polarized Sunglasses, UV400 Protection Cycling Glasses, Sports Glasses goggles for Men Women, Fishing, Golf, Running, Hiking, Baseball Outdoor Sports Glasses",
+    image: "https://m.media-amazon.com/images/I/51g+dKj+rdL._AC_UL320_.jpg",
     category_id: 9,
     seller_id: 3 
 )
