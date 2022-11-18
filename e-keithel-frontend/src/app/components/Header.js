@@ -67,6 +67,7 @@ const Header = () => {
       if (search !== '') {
         dispatch(getSearchResult(searchResults));
         navigate('/search');
+        setSearch('');
       }
     }
   };

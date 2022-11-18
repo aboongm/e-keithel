@@ -22,7 +22,6 @@ const Signup = () => {
   const navigate = useNavigate();
   const [registerUser, { data: registerData, isSuccess: isSuccessRegister }] =
     useRegisterUserMutation();
-  console.log('signup: ', registerData, isSuccessRegister);
 
   useEffect(() => {
     fullnameRef.current.focus();
@@ -37,7 +36,7 @@ const Signup = () => {
     e.preventDefault();
 
     if (fullname && email && password && mobileNo) {
-      await registerUser({ user: { fullname, email, password, mobileNo } });
+      registerUser({ user: { fullname, email, password, mobileNo } });
     }
   };
 

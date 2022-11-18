@@ -7,7 +7,7 @@
 .login__button {
   width: 100%;
   font-size: 1rem;
-  background-color: #2998d3;
+  background-color: #2998d3 !important;
   color: #fff;
   border: 1px solid;
   margin-top: 10px;
